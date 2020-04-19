@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="326px" height="328px" viewBox="0 0 326 328" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4 Copy@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="1.44424438%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#17EAD9" offset="0%"></stop>
+            <stop stop-color="#6078EA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="FAQ-teachers" transform="translate(-279.000000, -436.000000)">
+            <g id="Group-4-Copy" transform="translate(279.000000, 436.000000)">
+                <path d="M155.433341,266.50597 C284.658747,251.438037 276.66602,218.509322 290.041457,130.56337 C303.416893,42.6174171 173.443991,-20.8204315 110.351166,6.35673077 C47.2583398,33.533893 76.9653032,82.2881616 20.8252259,130.56337 C-35.3148514,178.838578 26.2079353,281.573902 155.433341,266.50597 Z" id="Oval-blue" fill="url(#linearGradient-1)" opacity="0.339118304"></path>
+                <circle id="Oval-2" fill="#FFFFFF" opacity="0.354743304" cx="245.5" cy="247.5" r="80.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
