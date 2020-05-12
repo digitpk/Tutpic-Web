@@ -1,6 +1,8 @@
 	<!--[if lt IE 9]>
 <script src="https://www.elegantthemes.com/layouts/wp-content/themes/Divi/js/html5.js" type="text/javascript"></script>
 <![endif]-->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <script type="text/javascript">
     document.documentElement.className = 'js';
 </script>
@@ -36,3 +38,31 @@
 <link rel="icon" href="{{asset('/')}}img/2017/logo/logo.png" sizes="32x32" />
 <link rel="icon" href="{{asset('/')}}img/2017/logo/logo.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="{{asset('/')}}img/2017/logo/logo.png" />
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+
+<style>
+    .help-block{
+        color: orangered;
+    }
+    .table{
+        width: 100%;
+    }
+    .text-white{
+        color: white;
+    }
+    .p-5{
+      padding: 5px;
+    }
+    .et_pb_contact p select{
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        -webkit-appearance: none;
+        background-color: #eee;
+        width: 100%;
+        border-width: 0;
+        border-radius: 0;
+        color: #999;
+        font-size: 14px;
+        padding: 16px;
+    }
+</style>

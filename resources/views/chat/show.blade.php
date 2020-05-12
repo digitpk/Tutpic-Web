@@ -1,5 +1,9 @@
 @extends('layout.master')
 @section('css')
+    <link rel="stylesheet" id="et-core-unified-230215-cached-inline-styles"
+          href="{{asset('/')}}css/et-cache/230215/et-core-unified-230215-15884562735833.min.css"
+          onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"/></head>
+
     <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
     <script>
         var pusher = new Pusher('552f47d5d4aeaf6a0cff', {
@@ -10,9 +14,7 @@
             appendChatMessage(data.message)
         });
     </script>
-
     <style>
-
         .right-header {
             padding: 15px;
             height: 65px;
@@ -55,16 +57,31 @@
         }
 
         .right-header-contentChat .rightside-left-chat p, .right-header-contentChat .rightside-right-chat p {
-            background-color: lightcyan;
             padding: 10px;
             border-radius: 8px;
-            color: black;
             font-size: 20px;
+            color: white;
+
         }
 
-        .right-header-contentChat .rightside-right-chat p {
-            background-color: lightgrey;
+        .rightside-right-chat p span , .rightside-left-chat p span {
+            background-color: darkseagreen;
+            border-radius: 10px;
+            padding: 5px;
         }
+
+        .rightside-right-chat p {
+            text-align: right;
+            /*color: white;*/
+        }
+
+        .rightside-right-chat p span {
+            background-color: dodgerblue;
+        }
+
+        /*.right-header-contentChat .rightside-right-chat p {*/
+        /*    !*background-color: lightgrey;*!*/
+        /*}*/
 
         .right-chat-textbox {
             padding: 15px 30px;
@@ -132,96 +149,93 @@
 
 @stop
 @section('content')
-    <div class="container">
-        @if($chat->is_active)
-            <p class="text-primary text-right"><span class="fa fa-info"></span> For permanent Closing Chat Click
-                <a
-                    href="javascript:"
-                    onclick="confirmCloseChat()"
-                    class="text-danger">here</a>
-            </p>
-        @endif
-        <div class="row">
-            <div style=" " class="col-md-12 col-sm-12 col-xs-12 ">
-                <div class="row">
-                    <div class="col-md-12 right-header">
-                        <div class="right-header-detail">
-                            <p>
-                                @if(auth()->user()->isTeacher())
-                                    {{$chat->getStudentName()}}
-                                @elseif(auth()->user()->isStudent())
-                                    {{$chat->getTeacherName()}}
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 right-header-contentChat" id="chat-body">
-                        <ul id="message-ul">
-                            @foreach($chat->messages as $message)
-                                <li>
-                                    @include('chat.partials.message')
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                @if($chat->is_active)
-
-                    <div class="row" style="margin-bottom: 5px">
-                        <input id="file-upload" type="file"/>
-                        <div class="col-sm-12 text-center">
-                            <div class="btn btn-success">
-                                <label for="image">Share Image <span class="fa fa-image"></span></label>
-                                <input type="file" id="image" name="image" accept="image/*">
-                            </div>
-                            <div class="btn btn-info">
-                                <label for="video">Share Video <span class="fa fa-video-camera"></span></label>
-                                <input type="file" id="video" name="video" accept="video/*">
-                            </div>
-                            {{--                        <div class="btn btn-info">--}}
-                            {{--                            <label for="video">Share Video <span class="fa fa-video-camera"></span></label>--}}
-                            {{--                            <input type="file" id="video" name="video" accept="video/*">--}}
-                            {{--                        </div>--}}
-                            {{--                            <button onkeydown="console.log('keyddown')" onkeyup="console.log('key up')" id="recordButton1" class="btn btn-warning">--}}
-                            {{--                                Share Voice <span class="fa fa-microchip"></span>--}}
-                            {{--                            </button>--}}
-                        </div>
-                    </div>
-                @endif
-                <div class="row right-chat-textbox">
-                    @if($chat->is_active)
-                        <div class="col-xs-10">
-                            <form id="form-chat" onsubmit="return false;">
-                                @csrf
-                                <div class="form-group">
-                                    <input name="description" autocomplete="off" id="description" type="text"
-                                           placeholder="Write your message here"
-                                           class="form-control">
+    <article id="post-230209" class="post-230209 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div id="et-boc" class="et-boc">
+                <div class="et-l et-l--post">
+                    <div class="et_builder_inner_content et_pb_gutters3">
+                        <div class="">
+                            @if($chat->is_active)
+                                <p class="text-primary " style="text-align: right;color: orangered"><span
+                                        class="fa fa-info"></span> For
+                                    permanent
+                                    Closing Chat Click
+                                    <a
+                                        href="javascript:"
+                                        onclick="confirmCloseChat()"
+                                        class="text-danger">here</a>
+                                </p>
+                            @endif
+                            <div class="row">
+                                <div style=" " class="col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="row">
+                                        <div class="col-md-12 right-header">
+                                            <div class="right-header-detail">
+                                                <p>
+                                                    @if(auth()->user()->isTeacher())
+                                                        {{$chat->getStudentName()}}
+                                                    @elseif(auth()->user()->isStudent())
+                                                        {{$chat->getTeacherName()}}
+                                                    @endif
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 right-header-contentChat" id="chat-body">
+                                            <ul id="message-ul">
+                                                @foreach($chat->messages as $message)
+                                                    <li>
+                                                        @include('chat.partials.message')
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row right-chat-textbox">
+                                        @if($chat->is_active)
+                                            @csrf
+                                            <span class="text-white p-5">
+                                                <label for="image"><span
+                                                        class="fa fa-image"></span></label>
+                                                <input type="file" id="image" name="image" accept="image/*">
+                                            </span>
+                                            <span class="text-white p-5">
+                                                <label for="video"><span
+                                                        class="fa fa-video-camera"></span></label>
+                                                <input type="file" id="video" name="video" accept="video/*">
+                                            </span>
+                                            <input style="width: 80%; padding: 5px"
+                                                   name="description" autocomplete="off" id="description"
+                                                   type="text"
+                                                   placeholder="Write your message here"
+                                                   class="form-control input">
+                                            <button onclick="chatMessageSubmit()"
+                                                    class="btn btn-primary form-control"
+                                                    style="background: green; color: white; padding: 4px;width: 36px;"><i
+                                                    class="fa fa-send"></i>
+                                            </button>
+                                        @else
+                                            <div class="col-xs-10">
+                                                <h3 class="text-white text-center">session closed</h3>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                        <div class="col-xs-2">
-                            <button onclick="chatMessageSubmit()" class="btn btn-primary form-control"
-                                    style="background: blue; color: white"><i
-                                    class="fa fa-send"></i></button>
-                            <a href="#"></a>
-                        </div>
-                    @else
-                        <div class="col-xs-10">
-                            <h3 class="text-white text-center">session closed</h3>
-                        </div>
-                    @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </article>
+
 
 @stop
 @section('js')
-    <script src="{{asset('js/recorder.js')}}"></script>
+    <script src="{{asset('app-assets/vendors/js/core/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
 
+    <script src="{{asset('js/recorder.js')}}"></script>
     <script>
         var file_src = '{{asset('_images/chats/')}}';
         $(document).ready(function () {
@@ -239,8 +253,11 @@
         }
 
         function chatMessageSubmit() {
-            var chat_form = $('#form-chat');
-            var data = chat_form.serialize()
+            var description_field = $('#description');
+            var data = {'description': description_field.val()}
+            if (!data.description) {
+                return;
+            }
             $.ajax({
                 type: 'PUT',
                 url: '{{$url.'/'.$chat->id}}',
@@ -250,7 +267,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (r) {
-                    chat_form.trigger("reset")
+                    description_field.val('')
                     addChatMessage(r)
                     gotoChatBottom()
                 },
@@ -278,7 +295,7 @@
                 '        <p>';
 
             if (m.description) {
-                new_message += m.description;
+                new_message +='<span>'+ m.description+'</span>';
             }
 
             if (m.video) {

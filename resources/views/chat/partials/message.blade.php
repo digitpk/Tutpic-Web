@@ -2,7 +2,9 @@
     <div
         class="{{$message->user_id==auth()->id()?'rightside-right-chat':'rightside-left-chat'}}">
         @if($message->description)
-            <p>{{$message->description}}</p>
+            <p>
+                <span>{{$message->description}}</span>
+            </p>
         @endif
         @if($message->image)
             <p>

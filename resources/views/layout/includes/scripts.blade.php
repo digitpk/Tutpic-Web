@@ -43,7 +43,7 @@
     var et_pb_motion_elements = {"desktop":[],"tablet":[],"phone":[]};
     /* ]]> */
 </script>
-<script type='text/javascript' src='{{asset('/')}}assets/Divi/js/custom.unifieda94e.js?ver=4.4.1'></script>
+{{--<script type='text/javascript' src='{{asset('/')}}assets/Divi/js/custom.unifieda94e.js?ver=4.4.1'></script>--}}
 <script type='text/javascript' src='{{asset('/')}}assets/Divi/core/admin/js/commona94e.js?ver=4.4.1'></script>
 <script type='text/javascript' src='{{asset('/')}}js/wp-embed.minc225.js?ver=5.4.1'></script>
 <script type='text/javascript'>
