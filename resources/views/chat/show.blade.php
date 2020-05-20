@@ -156,7 +156,7 @@
                     <div class="et_builder_inner_content et_pb_gutters3">
                         <div class="">
                             @if($chat->is_active)
-                                <p class="text-primary " style="text-align: right;color: orangered"><span
+                                <p class="text-primary " style="text-align: right;color: orangered;margin-top: 30px"><span
                                         class="fa fa-info"></span> For
                                     permanent
                                     Closing Chat Click
