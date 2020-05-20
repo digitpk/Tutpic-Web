@@ -22,6 +22,8 @@
                         <span>RSS</span>
                     </a>
                 </li>
-            </ul><p id="footer-info">Designed by <a href="#" title=""></a> | Powered by <a href="#">ITech Door</a></p> </div>
+            </ul>
+            <p id="footer-info">TutPic</p>
+        </div>
     </div>
 </footer>

@@ -12,10 +12,9 @@ Route::namespace('Home')->group(function () {
 });
 
 Route::namespace('Auth')->group(function () {
-
     Route::get('login', 'LoginController@index')->name('login');
     Route::post('login', 'LoginController@store');
-    Route::post('logout', 'LoginController@destroy');
+    Route::get('logout', 'LoginController@destroy');
     Route::get('register', 'RegisterController@index');
     Route::get('register-teacher', 'RegisterController@teacherCreate');
     Route::post('register', 'RegisterController@store');
@@ -24,12 +23,10 @@ Route::namespace('Auth')->group(function () {
 });
 
 Route::namespace('Admin')->group(function () {
-
     Route::middleware('auth')->group(function () {
         Route::get('dashboard', 'DashboardController@index');
 //        Route::resource('gallery-categories', 'GalleryCategoryController');
     });
-
 });
 
 Route::namespace('User')->group(function () {
@@ -43,6 +40,7 @@ Route::namespace('User')->group(function () {
 
 });
 Route::middleware('auth')->group(function () {
+    Route::get('account', 'AccountController@index');
     Route::resource('chat', 'ChatController');
     Route::post('chat-file/{id}', 'ChatController@update');
     Route::get('chat-closed/{id}', 'ChatController@closed');
@@ -54,6 +52,10 @@ Route::get('clear-cache', function () {
     \Artisan::call('cache:clear');
     \Artisan::call('config:clear');
     return back();
+});
+
+Route::get('queue-listen', function () {
+    \Artisan::call('queue:listen');
 });
 
 

@@ -1,8 +1,8 @@
-@extends('layout.master')
-@section('content')
-    <section class="container">
+@extends('account.index')
+@section('body')
+    <section class="">
         <h1>Your Sessions</h1>
-        <table class="table table-bordered">
+        <table class="table table-bordered" >
             <thead>
             <tr>
                 <th>Question</th>
@@ -36,6 +36,7 @@
         </table>
     </section>
 @stop
+
 @section('js')
     <script>
 
