@@ -18,6 +18,7 @@ Route::namespace('Auth')->group(function () {
     Route::get('register', 'RegisterController@index');
     Route::get('register-teacher', 'RegisterController@teacherCreate');
     Route::post('register', 'RegisterController@store');
+    Route::get('reset-password', 'RegisterController@reset');
     Route::post('register-teacher', 'RegisterController@storeTeacher');
 
 });
@@ -47,10 +48,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('clear-cache', function () {
-    \Artisan::call('view:clear');
-    \Artisan::call('route:clear');
-    \Artisan::call('cache:clear');
-    \Artisan::call('config:clear');
+    \Artisan::call('optimize:clear');
     return back();
 });
 

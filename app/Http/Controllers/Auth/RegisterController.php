@@ -23,14 +23,18 @@ class RegisterController extends Controller
     public function teacherCreate()
     {
         return view('auth.register-teacher',[
-            'levels'=>Level::all(),
-            'subjects'=>Subject::all(),
+            //'levels'=>Level::all(),
+            //'subjects'=>Subject::all(),
         ]);
     }
 
     public function create()
     {
 
+    }
+    public function reset()
+    {
+        return view('auth.reset-password');
     }
 
     public function validateUniqueEmail($request)
@@ -48,6 +52,7 @@ class RegisterController extends Controller
             'role_id' => 3,
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => bcrypt($request->password)
         ]);
 
@@ -63,6 +68,7 @@ class RegisterController extends Controller
             'role_id' => 2,
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => bcrypt($request->password)
         ]);
 

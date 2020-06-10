@@ -1,5 +1,7 @@
-@extends('account.index')
-@section('body')
+@extends('layout.master')
+@section('content')
+    @include('layout.includes.breadcrumb',['page_title'=>'Chat'])
+
     <section class="">
         <h1>Your Sessions</h1>
         <table class="table table-bordered" >
