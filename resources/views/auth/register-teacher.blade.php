@@ -11,6 +11,17 @@
                 <div class="row row--35 align-items-start">
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="section-title text-left mb--50">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    There were some errors with your request.
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <h3 class="title">Teacher SignUp Here.</h3>
 
                         </div>

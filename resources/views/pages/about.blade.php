@@ -7,7 +7,7 @@
                 <div class="row row--35 align-items-center">
                     <div class="col-lg-5 col-md-12">
                         <div class="thumbnail">
-                            <img class="w-100" src="`{{asset('/')}}`assets/images/about/about-3.jpg" alt="About Images" />
+                            <img class="w-100" src="{{asset('/')}}assets/images/about/about-3.jpg" alt="About Images" />
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-12">

@@ -11,6 +11,8 @@
                 <div class="row row--35 align-items-start">
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="section-title text-left mb--50">
+
+
                             <h3 class="title">Student SignUp Here.</h3>
 
                         </div>

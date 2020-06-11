@@ -8,11 +8,15 @@
     <div class="rn-contact-area rn-section-gap bg_color--1">
         <div class="contact-form--1">
             <div class="container">
+                @if(session('success'))
+                    <div class="alert alert-info">
+                        <p>{{session('success')}}</p>
+                    </div>
+                    @endif
                 <div class="row row--35 align-items-start">
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="section-title text-left mb--50">
                             <h2 class="title">Login Here.</h2>
-
                         </div>
                         <div class="form-wrapper">
                             <form action="{{url('/login')}}"  method="post">
@@ -43,7 +47,14 @@
                                         id="mc-embedded-subscribe">Submit
                                 </button>
                                 <a style="float: right" href="{{'reset-password'}}">Reset Password</a>
-
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="inner  " style="margin-left: 100%">
+                                        <ul class="social-share rn-lg-size d-flex justify-content-center liststyle">
+                                            <li><a  href="{{url('login/facebook')}}"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a  href="{{url('login/google')}}"><i class="fab fa-google"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -58,4 +69,17 @@
     </div>
 
 @stop
+
+@section('js')
+    <script >
+
+
+
+
+    </script>
+
+
+
+    @stop
+
 
