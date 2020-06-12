@@ -9,7 +9,7 @@
                 </a>
             </div>
         </div>
-        <div class="header-right">
+        <div class="header-right" style="margin-right:7% ">
             <nav class="mainmenunav d-lg-block navbar-example2">
                 <!-- Start Mainmanu Nav -->
                 <ul class="mainmenu nav nav-pills">
@@ -23,12 +23,18 @@
                     </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#blog">Blog</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#contact">Contact</a></li>
-                    @if(auth()->check())
-                    <li class="nav-item"><a class="nav-link smoth-animation"  href="{{url('logout')}}">Logout</a></li>
-                        @else
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('login')}}">Login/Register</a></li>
-                    @endif
 
+                    <li class="has-droupdown">
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <ul class="submenu">
+                            <li><a href="chat/create">Session</a></li>
+                            @if(auth()->check())
+                                <li class="nav-item"><a class="nav-link smoth-animation"  href="{{url('logout')}}">Logout</a></li>
+                            @else
+                                <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('login')}}">Login</a></li>
+                            @endif
+                        </ul>
+                    </li>
                 </ul>
                 <!-- End Mainmanu Nav -->
             </nav>

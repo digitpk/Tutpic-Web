@@ -1,11 +1,10 @@
 <!-- JS
 ============================================ -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!-- Modernizer JS -->
 <script src="{{asset('/')}}assets/js/vendor/modernizr.min.js"></script>
 <!-- jQuery JS -->
-<script src="{{asset('/')}}assets/js/vendor/jquery.js"></script>
 <!-- Bootstrap JS -->
 <script src="{{asset('/')}}assets/js/vendor/bootstrap.min.js"></script>
 <script src="{{asset('/')}}assets/js/vendor/stellar.js"></script>
@@ -16,6 +15,7 @@
 <!-- Main JS -->
 <script src="{{asset('/')}}assets/js/main.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
 <script>
     particlesJS('particles-js',

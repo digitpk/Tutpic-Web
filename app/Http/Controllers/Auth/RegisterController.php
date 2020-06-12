@@ -132,6 +132,7 @@ class RegisterController extends Controller
             $message->to(  $user->email);
             $message->subject('to verfiy the account ');
         });
+        return redirect('login')->with('success','Please check your email box for account activation');
 
 
     }

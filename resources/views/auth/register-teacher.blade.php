@@ -30,7 +30,7 @@
                                 <br>
                                 @csrf
                                 <label for="levels">Select Classes</label>
-                                <select class="js-example-basic-multiple" multiple="multiple" name="levels[]" id="levels" >
+                                <select class="select2" multiple name="levels[]" id="levels" >
                                     <option value="1">Primary</option>
                                     <option value="2">Elementary</option>
                                     <option value="3">Secondary</option>
@@ -43,7 +43,7 @@
                                 @enderror
 
                                 <label for="subjects">Select Subjects</label>
-                                <select class="js-example-basic-multiple" multiple="multiple" name="subjects[]" id="subjects" >
+                                <select  class="select2" multiple name="subjects[]" id="subjects" >
                                     <option value="1">English</option>
                                     <option value="2">Math</option>
                                     <option value="3">Physics</option>
@@ -55,8 +55,8 @@
                                     </span>
                                 @enderror
 
-                                <label>
-                                    <input type="text" name="name" id="item02" placeholder="Your name *">
+                                <label style="margin-top: 5%">
+                                    <input type="text" name="name"  placeholder="Your name *">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
                                     @enderror
                                 </label>
                                 <label>
-                                    <input type="text" name="email" id="item02" placeholder="Your email *">
+                                    <input type="text" name="email"  placeholder="Your email *">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -78,11 +78,11 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                    <input type="text" name="phone" id="item02" placeholder="Your phone *">
+                                    <input type="text" name="phone"  placeholder="Your phone *">
                                 </label>
 
                                 <label>
-                                    <input type="password" name="password" id="item01" placeholder="Your Password *" />
+                                    <input type="password" name="password"  placeholder="Your Password *" />
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
 
     <script>
         $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
+            $('.select2').select2();
         });
     </script>
     @stop

@@ -6,6 +6,11 @@
     <div class="rn-contact-area rn-section-gap bg_color--1">
         <div class="contact-form--1">
             <div class="container">
+                @if(session('success'))
+                    <div class="alert alert-info">
+                        <p>{{session('success')}}</p>
+                    </div>
+                @endif
                 <div class="row row--35 align-items-start">
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="section-title text-left mb--50">
@@ -35,8 +40,8 @@
 
                                 <label for="subject"
                                        class="">Select Subject</label>
-                                <select class="input" style="margin-bottom: 5%"
-                                        name="subject js-example-basic-multiple" id="subject">
+                                <select class="input js-example-basic-multiple" style="margin-bottom: 5%"
+                                        name="subject" id="subject">
                                     {{--                                                <option value="">Select Subject</option>--}}
                                     @foreach($subjects as $subject)
                                         <option
@@ -56,10 +61,20 @@
                                 </select>
 
 
-                                <button style="margin-top: 5%; !important;" class="rn-button-style--2 btn_solid" type="submit" value="submit" name="submit"
+                                <button style="margin-top: 5%; !important;" class="rn-button-style--2 btn_solid" type="submit"
                                         id="mc-embedded-subscribe">Submit
                                 </button>
                             </form>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
