@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-    @include('layout.includes.breadcrumb',['page_title'=>'Chat'])
+    @include('layout.includes.breadcrumb',['page_title'=>'Session'])
 
     <section class="">
         <h1>Your Sessions</h1>

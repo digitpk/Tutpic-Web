@@ -5,7 +5,7 @@
 
 **********************************************************************************/
 /**************************************************************
-	
+
 	STYLESHEET INDEXING
 	|
 	|
@@ -27,33 +27,33 @@
 	|
 	|
 	|___Inner Styles
-	|	|___ breadcrump 
-	|	|___ section-title 
+	|	|___ breadcrump
+	|	|___ section-title
 	|	|___ button
 	|	|___ pagination
 	|	|___ socialicon
 	|	|___ footer
 	|
 	|___Elements Styles
-	|	|___ portfolio 
-	|	|___ service 
-	|	|___ slider 
-	|	|___ counterup 
-	|	|___ testimonial 
-	|	|___ brand 
-	|	|___ team 
-	|	|___ callto-action 
-	|	|___ tab 
-	|	|___ accordion 
-	|	|___ list 
-	|	|___ contact 
+	|	|___ portfolio
+	|	|___ service
+	|	|___ slider
+	|	|___ counterup
+	|	|___ testimonial
+	|	|___ brand
+	|	|___ team
+	|	|___ callto-action
+	|	|___ tab
+	|	|___ accordion
+	|	|___ list
+	|	|___ contact
 	|
 	|___BLog Styles
-	|	|___ blog 
-	|	|___ blog-details 
+	|	|___ blog
+	|	|___ blog-details
 	|
 	|___Template Styles
-	|	|___ about 
+	|	|___ about
 	|	|___ portfolio-details
 	|	|___ service-details
 	|	|___ preview
@@ -66,10 +66,10 @@
     Default Styles
 ***************************************/
 /*===============================
-    Font Family 
+    Font Family
 =================================*/
 /*===============================
-    Color Variation 
+    Color Variation
 =================================*/
 /* container 450px*/
 /* container 300px*/
@@ -676,7 +676,7 @@ ul.liststyle.bullet li + li {
 }
 
 /*=====================
-Common Css 
+Common Css
 =======================*/
 .textBlack {
   color: #000000;
@@ -3814,7 +3814,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 /* ------------------------
-    Custom Animation 01 
+    Custom Animation 01
 ----------------------------*/
 @-webkit-keyframes headerSlideDown {
   0% {
@@ -3838,7 +3838,7 @@ Copyright (c) 2015 Daniel Eden
  *  Utilities
 =================================*/
 /*====================================
-    Google Font  
+    Google Font
 ===================================*/
 /*----------------------------------------
 font-family: 'Montserrat', sans-serif;
@@ -3923,7 +3923,7 @@ font-family: 'Poppins', sans-serif;
 }
 
 /*===============================
-    Background Color 
+    Background Color
 =================================*/
 .bg_color--1 {
   background: #fff;
@@ -3954,7 +3954,7 @@ font-family: 'Poppins', sans-serif;
 }
 
 /*===========================
-    Background Image 
+    Background Image
 =============================*/
 .bg_overlay:before {
   position: absolute;
@@ -4428,7 +4428,7 @@ p:last-child {
 }
 
 /*=========================
-    Text specialized 
+    Text specialized
 ==========================*/
 .text-italic {
   font-style: italic;
@@ -4662,7 +4662,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*=============================
-	Overlay styles 
+	Overlay styles
 ==============================*/
 [data-overlay],
 [data-black-overlay],
@@ -4766,7 +4766,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*------------------------------
-    Scroll Up 
+    Scroll Up
 --------------------------------*/
 #scrollUp {
   width: 50px;
@@ -4815,7 +4815,7 @@ img.react-parallax-bgimage {
 }
 
 /*=========================
-    Section Separation 
+    Section Separation
 ==========================*/
 .rn-section-gap {
   padding: 120px 0;
@@ -9472,7 +9472,7 @@ img.react-parallax-bgimage {
     Header Styles
 ***************************************/
 /*=====================
-    Header Area 
+    Header Area
 =======================*/
 .header-area {
   padding-left: 50px;
@@ -9790,7 +9790,7 @@ img.react-parallax-bgimage {
 }
 
 .header-area.header--sticky.sticky {
-  background: #ffffff;
+  background: #ffffff !important;
   -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
   -webkit-animation: headerSlideDown .95s ease forwards;
@@ -9856,7 +9856,7 @@ img.react-parallax-bgimage {
 }
 
 /*----------------------------
-    Mobile Menu Style Css 
+    Mobile Menu Style Css
 ------------------------------*/
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-area .header-wrapper .mainmenunav {
@@ -10211,7 +10211,7 @@ img.react-parallax-bgimage {
 }
 
 /*====================
-Mainmenu Area 
+Mainmenu Area
 =====================*/
 .mainmenunav ul.mainmenu {
   display: -webkit-box;
@@ -10344,7 +10344,7 @@ Mainmenu Area
     Inner Styles
 ***************************************/
 /*====================
-    Breadcrump Area 
+    Breadcrump Area
 ======================*/
 @media (min-width: 1200px) {
   .container {
@@ -10407,7 +10407,7 @@ Mainmenu Area
 }
 
 /*----------------------
-Page Title Area  
+Page Title Area
 --------------------------*/
 .rn-page-title h2.title {
   font-size: 72px;
@@ -10478,7 +10478,7 @@ Page Title Area
 }
 
 /*===================
-    Section Title 
+    Section Title
 ====================*/
 .section-title {
   margin-top: -20px;
@@ -10640,7 +10640,7 @@ Page Title Area
 }
 
 /*===================
-Button Area 
+Button Area
 ====================*/
 a.btn-transparent {
   color: #1f1f25;
@@ -10821,7 +10821,7 @@ a.rn-button-style--2:hover {
 }
 
 /*-----------------------
-    Video Button  
+    Video Button
 -------------------------*/
 .yu2fvl {
   z-index: 9999;
@@ -10885,7 +10885,7 @@ a.rn-button-style--2:hover {
 }
 
 /*=====================
-    Pagination Styles 
+    Pagination Styles
 =======================*/
 .rn-pagination ul.page-list li {
   display: inline-block;
@@ -11030,7 +11030,7 @@ ul.social-share.social-style--2.color-black li a:hover {
 }
 
 /*--------------------
-Footer Styles 
+Footer Styles
 ----------------------*/
 .footer-wrapper {
   position: relative;
@@ -11231,7 +11231,7 @@ Footer Styles
 }
 
 /*---------------------
-Footer Style Two 
+Footer Style Two
 ------------------------ */
 .footer-style-2 p {
   color: #c6c9d8;
@@ -11240,7 +11240,7 @@ Footer Style Two
 }
 
 /*-------------------------
-    Copyright Style Css 
+    Copyright Style Css
 --------------------------*/
 .copyright-text {
   position: absolute;
@@ -11273,7 +11273,7 @@ Footer Style Two
     Elements Styles
 ***************************************/
 /*==================
-    Portfolio Area 
+    Portfolio Area
 ==================*/
 .mesonry-list {
   margin: 0 -22px;
@@ -12130,7 +12130,7 @@ Footer Style Two
 }
 
 /*-----------------------------
-Portfolio Style Three  
+Portfolio Style Three
 --------------------------------*/
 .portfolio-style--3 {
   position: relative;
@@ -12280,7 +12280,7 @@ Portfolio Style Three
 }
 
 /*--------------------------
-    Portfolio Style Static 
+    Portfolio Style Static
 -----------------------------*/
 a.item-portfolio-static {
   -webkit-transition: inherit;
@@ -12340,7 +12340,7 @@ a.item-portfolio-static {
 }
 
 /*==========================
-    Service Area 
+    Service Area
 ===========================*/
 /* Bg Color Variation  */
 .single-service .icon svg {
@@ -12893,7 +12893,7 @@ a.item-portfolio-static {
 }
 
 /*---------------------------
-    Paralax Service Style  
+    Paralax Service Style
 -----------------------------*/
 .rn-paralax-service .service__style--2 {
   z-index: 2;
@@ -12955,7 +12955,7 @@ a.item-portfolio-static {
  * Section Title
 ----------------------*/
 /*====================
-    Slider Area 
+    Slider Area
 ======================*/
 .slider-fixed--height {
   min-height: 1080px;
@@ -13153,7 +13153,7 @@ a.item-portfolio-static {
 }
 
 /*------------------------
-Slider Styles  
+Slider Styles
 --------------------------*/
 .slide .inner {
   padding-top: 100px;
@@ -13540,7 +13540,7 @@ Slider Styles
 }
 
 /*=======================
-    Slider Paralax 
+    Slider Paralax
 =========================*/
 .slider-paralax,
 .rn-paralax {
@@ -13653,7 +13653,7 @@ Slider Styles
 }
 
 /*----------------------
-Slider Default 
+Slider Default
 -----------------------*/
 .slider-activation {
   position: relative;
@@ -13904,7 +13904,7 @@ Slider Default
 }
 
 /*========================
-    Counterup Area 
+    Counterup Area
 ==========================*/
 .counterup_style--1 {
   text-align: center;
@@ -14022,10 +14022,10 @@ Slider Default
 }
 
 /* ---------------------------
-Testimonial Styles 
+Testimonial Styles
 ------------------------------*/
 /*-----------------------------
-    Testminial Tab Content  
+    Testminial Tab Content
 --------------------------------*/
 .rn-testimonial-content {
   text-align: center;
@@ -14184,7 +14184,7 @@ Testimonial Styles
 }
 
 /* ------------------------------
-Testimonial Thumbnail 
+Testimonial Thumbnail
 -------------------------------- */
 .rn-testimonial-area ul.testimonial-thumb-wrapper {
   list-style: none;
@@ -14519,7 +14519,7 @@ ul.brand-style-2 img:hover {
 }
 
 /*------------------------
-    Team Styles 
+    Team Styles
 --------------------------*/
 .team {
   margin-top: 30px;
@@ -14723,7 +14723,7 @@ ul.brand-style-2 img:hover {
 }
 
 /*-------------------
-    Team Static  
+    Team Static
 ---------------------*/
 .team-static {
   margin-top: 30px;
@@ -14745,7 +14745,7 @@ ul.brand-style-2 img:hover {
 }
 
 /*--------------------------
-Call To Action Wrapper 
+Call To Action Wrapper
 -----------------------------*/
 .call-to-action {
   background: -webkit-linear-gradient(305deg, #f81f01 0%, #ee076e 100%);
@@ -14875,7 +14875,7 @@ ul.nav.tab-style--1 li a.active::before {
 }
 
 /*------------------------
-    Tab Content  
+    Tab Content
 -------------------------*/
 .single-tab-content {
   padding-top: 20px;
@@ -14985,7 +14985,7 @@ ul.nav.tab-style--1 li a.active::before {
 }
 
 /*-------------------------------
-    Accordiuon Style One  
+    Accordiuon Style One
 --------------------------------*/
 .rn-card .rn-card-header {
   display: inline-block;
@@ -15073,7 +15073,7 @@ ul.nav.tab-style--1 li a.active::before {
 }
 
 /*----------------------
-    List Style  
+    List Style
 -----------------------*/
 ul.list-style li {
   position: relative;
@@ -15150,7 +15150,7 @@ ul.list-style li + li {
 }
 
 /*==========================
-    Contact Address 
+    Contact Address
 ============================*/
 .rn-address {
   margin-top: 30px;
@@ -15252,7 +15252,7 @@ ul.list-style li + li {
  * Button
  */
 /*-----------------------
-Video Popup 
+Video Popup
 -------------------------*/
 button.video-popup,
 a.video-popup {
@@ -15356,10 +15356,10 @@ a.video-popup.size-medium {
 }
 
 /*----------------------
-    Social Styles  
+    Social Styles
 -----------------------*/
 /*----------------------
-    Social Share 
+    Social Share
 ------------------------*/
 ul.social-transparent {
   margin: -8px;
@@ -15496,10 +15496,10 @@ ul.social-transparent li a:hover {
 }
 
 /*--------------------
-Gallery Styles  
+Gallery Styles
 -----------------------*/
 /*-------------------
-    Column Area  
+    Column Area
 ---------------------*/
 .single-column h4.tilte {
   margin-bottom: 6px;
@@ -15532,7 +15532,7 @@ Gallery Styles
 }
 
 /*----------------------
-    Error Area  
+    Error Area
 ------------------------*/
 .error-page-inner {
   height: calc(100vh - 120px);
@@ -15590,7 +15590,7 @@ Gallery Styles
     Blog Styles
 ***************************************/
 /*===================
-Blog Styles 
+Blog Styles
 =====================*/
 .blog.blog-style--1 {
   position: relative;
@@ -15748,7 +15748,7 @@ Blog Styles
 }
 
 /*----------------------
-BLog Details Styles 
+BLog Details Styles
 ------------------------*/
 .blog-single-page-title {
   position: relative;
@@ -16020,7 +16020,7 @@ BLog Details Styles
 }
 
 /*------------------------
-    BLog Contact Form  
+    BLog Contact Form
 --------------------------*/
 .blog-comment-form .inner .rnform-group {
   margin-bottom: 20px;
@@ -16046,7 +16046,7 @@ BLog Details Styles
     Template Styles
 ***************************************/
 /*====================
-    About Area 
+    About Area
 ======================*/
 .rn-finding-us-area .inner {
   position: relative;
@@ -16325,7 +16325,7 @@ BLog Details Styles
 }
 
 /*-----------------------------
-    Portfolio Details Styles 
+    Portfolio Details Styles
 -------------------------------*/
 .portfolio-thumb-inner .thumb {
   position: relative;
@@ -16481,7 +16481,7 @@ BLog Details Styles
 }
 
 /*--------------------------
-    Service Details Styles 
+    Service Details Styles
 -----------------------------*/
 .service-details-inner .sercice-details-content .thumb .video-popup {
   position: absolute;
@@ -16563,7 +16563,7 @@ BLog Details Styles
 }
 
 /*--------------------------
-    Color Darker Version  
+    Color Darker Version
 ----------------------------*/
 .active-dark {
   background: #101010;
@@ -17056,7 +17056,7 @@ BLog Details Styles
 }
 
 /*---------------------
-    Demo Area  
+    Demo Area
 -----------------------*/
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .home-demo-area .wrapper {
@@ -17223,7 +17223,7 @@ BLog Details Styles
 }
 
 /*-------------------
-Faq Area  
+Faq Area
 ----------------------*/
 .pv-feaq-area .accodion-style--1 .accordion__item + .accordion__item {
   margin-top: 20px;
@@ -17247,7 +17247,7 @@ Faq Area
 }
 
 /*-------------------
-    Tab BUtton  
+    Tab BUtton
 ---------------------*/
 .tablist-inner {
   display: inline-block;
@@ -17357,7 +17357,7 @@ Faq Area
 }
 
 /*-----------------------
-Footer Style  
+Footer Style
 -------------------------*/
 .prv-footer .inner h2.title {
   color: #1f1f25;

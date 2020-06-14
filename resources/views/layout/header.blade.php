@@ -3,7 +3,7 @@
     <div class="header-wrapper" id="header-wrapper">
         <div class="header-left">
             <div class="logo">
-                <a href="index.html">
+                <a href="{{url('/')}}">
                     <img class="logo-1" src="{{asset('/')}}assets/images/logo/logo-light.png" alt="Logo Images">
                     <img class="logo-2" src="{{asset('/')}}assets/images/logo/logo-all-dark.png" alt="Logo Images">
                 </a>
@@ -14,12 +14,14 @@
                 <!-- Start Mainmanu Nav -->
                 <ul class="mainmenu nav nav-pills">
                     <li class="nav-item"><a class="nav-link smoth-animation active" href="{{url('/')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#service">Service</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#service">Service</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#about">About</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#testimonial">Testimonial</a>
+                    <li class="nav-item"><a class="nav-link smoth-animation"
+                                            href="{{url('/')}}#testimonial">Testimonial</a>
                     </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#blog">Blog</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#contact">Contact</a></li>
@@ -51,3 +53,4 @@
     </div>
 </header>
 <!-- End Header Area -->
+
