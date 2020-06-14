@@ -6,6 +6,7 @@ use App\Models\Level;
 use App\Models\Subject;
 use App\Models\TeacherLevel;
 use App\Models\TeacherSubject;
+use App\Models\UserNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -68,5 +69,12 @@ class User extends Authenticatable
     {
         return $this->where('role_id', 3);
     }
+
+    public function userNotifications()
+    {
+      return  $this->hasMany(UserNotification::class,'user_id')->latest();
+    }
+
+
 
 }
