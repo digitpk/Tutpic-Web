@@ -22,16 +22,32 @@
 <link rel="stylesheet" href="{{asset('/')}}assets/css/vendor/lightbox.css">
 <link rel="stylesheet" href="{{asset('/')}}assets/css/plugins/plugins.css">
 <link rel="stylesheet" href="{{asset('/')}}assets/css/style.css">
+<script src="{{asset('/')}}assets/js/ion.sound.js"></script>
+
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
 <script>
     var pusher = new Pusher('552f47d5d4aeaf6a0cff', {
         cluster: 'ap2'
     });
-    var channel = pusher.subscribe('new-notification-{{auth()->id()}}');
-    channel.bind('new-notification', function (data) {
-        console.log(data)
-        // appendChatNotification(data.message)
+    var notificationChannel = pusher.subscribe('new-notification-{{auth()->id()}}');
+
+    notificationChannel.bind('new-notification', function (data) {
+        chatAlert()
+        appendChatNotification(data.message)
     });
+
+    var messageChannel = pusher.subscribe('new-message-{{auth()->id()}}');
+    messageChannel.bind('new-message', function (data) {
+        messageAlert()
+        appendChatMessage(data.message)
+    });
+
 </script>
+
+<style>
+    .bg-l-gray{
+        background: lightgrey;
+    }
+</style>
 

@@ -139,3 +139,29 @@
 
     );
 </script>
+
+
+<script !src="">
+
+
+    ion.sound({
+        sounds: [
+            {name: "beer_can_opening"},
+            {name: "bell_ring"}
+        ],
+        path: "{{asset('sounds')}}/",
+        preload: true,
+        volume: 1.0
+    });
+
+function messageAlert() {
+    ion.sound.play("bell_ring");
+
+}
+
+function chatAlert() {
+    ion.sound.play("bell_ring");
+
+}
+
+</script>
