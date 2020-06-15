@@ -20,14 +20,14 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
     'facebook' => [
-        'client_id' => '482863502372196',
-        'client_secret' => '193ab9ea90de5cee46d8043275de38ab',
-        'redirect' => 'http://localhost:8000/login/facebook/callback',
+        'client_id' =>  env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_CLIENT_REDIRECT'),
     ],
     'google' => [
-        'client_id' => '908800864181-i13sdudkfgtjg6vrif3qfpmf5pioi3da.apps.googleusercontent.com',
-        'client_secret' => 'z-9uKvp-KVQCYvZKNzW3q8CC',
-        'redirect' => 'http://localhost:8000/login/google/callback',
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_CLIENT_REDIRECT'),
     ],
 
     'postmark' => [

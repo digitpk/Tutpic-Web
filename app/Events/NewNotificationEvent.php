@@ -33,7 +33,7 @@ class NewNotificationEvent implements ShouldBroadcast
     public function broadcastOn()
     {
         // return new PrivateChannel('channel-name');
-        return ['new-notification-9'];
+        return ['new-notification-'.$this->message['user_id']];
     }
 
     public function broadcastAs()

@@ -9,7 +9,7 @@
                 </a>
             </div>
         </div>
-        <div class="header-right">
+        <div class="header-right" style="margin-right: 10%">
             <nav class="mainmenunav d-lg-block navbar-example2">
                 <!-- Start Mainmanu Nav -->
                 <ul class="mainmenu nav nav-pills">
@@ -24,11 +24,40 @@
                                             href="{{url('/')}}#testimonial">Testimonial</a>
                     </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#contact">Contact</a>
+                    </li>
                     @if(auth()->check())
-                    <li class="nav-item"><a class="nav-link smoth-animation"  href="{{url('logout')}}">Logout</a></li>
-                        @else
-                        <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('login')}}">Login/Register</a></li>
+                        <li class="has-droupdown">
+                            <a href="#"><i class="fa fa-bell"></i></a>
+                            <ul class="submenu" id="user-notifications" style="height: 400px;overflow-y: scroll;">
+                                @forelse(@auth()->user()->userNotifications as $notify)
+                                    <li class="{{$notify->is_read?'':'bg-l-gray'}}">
+                                        <a href="{{url($notify->url)}}?notification_id={{$notify->id}}">{!! $notify->message !!}</a>
+                                    </li>
+                                @empty
+                                    <li>
+                                        <a>No new Notification</a>
+                                    </li>
+                                @endforelse
+                            </ul>
+                        </li>
+
+                        <li class="has-droupdown">
+                            <a href="#"><i class="fa fa-user"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#">{{auth()->user()->name}}</a></li>
+                                @if(auth()->check() && auth()->user()->isStudent())
+                                    <li><a href="{{url('chat/create')}}">New Session</a></li>
+                                @endif
+                                <li><a href="{{url('chat')}}">Session</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link smoth-animation"
+                                       href="{{url('logout')}}">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @else
+                        <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('login')}}">Login</a></li>
                     @endif
 
                 </ul>

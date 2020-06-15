@@ -12,6 +12,7 @@
 ============================================ -->
 <!-- Bootstrap CSS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <script
     src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
@@ -29,9 +30,15 @@
         cluster: 'ap2'
     });
     var channel = pusher.subscribe('new-notification-{{auth()->id()}}');
+
     channel.bind('new-notification', function (data) {
-        console.log(data)
-        // appendChatNotification(data.message)
+        appendChatNotification(data.message)
     });
+
 </script>
 
+<style>
+    .bg-l-gray{
+        background: lightgrey;
+    }
+</style>

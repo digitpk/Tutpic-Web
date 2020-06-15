@@ -33,7 +33,7 @@ class ChatController extends Controller
                 $q->where('student_id', auth()->id());
             })
             ->latest()
-            ->get();
+            ->paginate(10);
         return view(self::VIEW . '.index', [
             'records' => $chats,
             'url' => self::URL,
@@ -104,7 +104,7 @@ class ChatController extends Controller
     {
         $id = base64_decode($id);
         $chat = Chat::find($id);
-        $notification = UserNotification::find(base64_decode($request->notification_id));
+        $notification = UserNotification::find($request->notification_id);
             if ($notification){
                 $notification->update([
                     'is_read'=>true

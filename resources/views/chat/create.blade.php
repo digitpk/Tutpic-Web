@@ -36,7 +36,7 @@
                                 <label for="subject"
                                        class="">Select Subject</label>
                                 <select class="input" style="margin-bottom: 5%"
-                                        name="subject js-example-basic-multiple" id="subject">
+                                        name="subject" id="subject">
                                     {{--                                                <option value="">Select Subject</option>--}}
                                     @foreach($subjects as $subject)
                                         <option
@@ -46,7 +46,7 @@
 
                                 <label style="margin-top: 3%" for="level"
                                        class="">Select Class</label>
-                                <select class=" input js-example-basic-multiple" style="margin-top: 3%"
+                                <select class=" input level" style="margin-top: 3%"
                                         name="level">
                                     {{--                                                <option value="">Select Class</option>--}}
                                     @foreach($levels as $level)
@@ -82,7 +82,7 @@
     <script>
         $(document).ready(function() {
             jQuery.noConflict();
-            $('.js-example-basic-multiple').select2();
+            $('.level').select2();
             $('#subject').select2();
         });
     </script>
