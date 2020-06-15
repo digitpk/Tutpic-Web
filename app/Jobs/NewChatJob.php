@@ -41,12 +41,13 @@ class NewChatJob implements ShouldQueue
         foreach ($this->users as $user) {
             $user->notify(new NewChatNotify($this->data));
 
-                                            </div>
-                                        </div>';
+            $append_msg = '<strong>New Session</strong>
+<br>
+                                                <small>' . date('d-m-y H:i', strtotime($this->chat->created_at)) . '</small>';
             $message = UserNotification::create([
                 'message' => $append_msg,
                 'user_id' => $user->id,
-                'url'=>$this->data['url']
+                'url' => $this->data['url']
             ]);
 
             event(new NewNotificationEvent($message));
