@@ -18,14 +18,7 @@ Route::namespace('Auth')->group(function () {
     Route::get('register', 'RegisterController@index');
     Route::get('register-teacher', 'RegisterController@teacherCreate');
     Route::post('register', 'RegisterController@store');
-    Route::get('active', 'RegisterController@active');
-    Route::get('reset-password', 'RegisterController@reset');
     Route::post('register-teacher', 'RegisterController@storeTeacher');
-    Route::get('login/facebook', 'LoginController@redirectToProvider1');
-
-    Route::get('/login/facebook/callback', 'LoginController@handleProviderCallback1');
-    Route::get('login/google', 'LoginController@redirectToProvider2');
-    Route::get('login/google/callback', 'LoginController@handleProviderCallback2');
 
 });
 
@@ -54,7 +47,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('clear-cache', function () {
-    \Artisan::call('optimize:clear');
+    \Artisan::call('view:clear');
+    \Artisan::call('route:clear');
+    \Artisan::call('cache:clear');
+    \Artisan::call('config:clear');
     return back();
 });
 

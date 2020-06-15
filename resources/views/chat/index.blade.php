@@ -1,7 +1,5 @@
-@extends('layout.master')
-@section('content')
-    @include('layout.includes.breadcrumb',['page_title'=>'Session'])
-
+@extends('account.index')
+@section('body')
     <section class="">
         <h1>Your Sessions</h1>
         <table class="table table-bordered" >

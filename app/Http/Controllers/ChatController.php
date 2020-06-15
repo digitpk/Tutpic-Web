@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Events\NewMessageEvent;
-use App\Events\NewNotificationEvent;
 use App\Jobs\NewChatJob;
 use App\Models\Chat;
 use App\Models\ChatMessage;
 use App\Models\Level;
 use App\Models\Subject;
-use App\Models\UserNotification;
 use App\Traits\ImageResize;
 use App\User;
 use Illuminate\Http\Request;
@@ -42,14 +40,11 @@ class ChatController extends Controller
 
     public function create()
     {
-
-
         return view(self::VIEW . '.create', [
             'subjects' => Subject::active()
                 ->get(),
             'levels' => Level::active()
-                ->get(),
-
+                ->get()
         ]);
     }
 
@@ -89,13 +84,11 @@ class ChatController extends Controller
 
         $url = 'chat/' . base64_encode($chat->id);
 
-
         $data = [
             'url' => $url,
         ];
 
-
-        dispatch(new NewChatJob($teachers, $data,$chat));
+        dispatch(new NewChatJob($teachers, $data));
 
         return redirect($url)->with('success', 'We are looking for best teacher');
     }
@@ -104,13 +97,6 @@ class ChatController extends Controller
     {
         $id = base64_decode($id);
         $chat = Chat::find($id);
-        $notification = UserNotification::find(base64_decode($request->notification_id));
-            if ($notification){
-                $notification->update([
-                    'is_read'=>true
-                ]);
-            }
-
         if ($chat) {
             if ($chat->teacher_id == auth()->id() || $chat->student_id == auth()->id()) {
                 return view('chat.show', [
@@ -171,7 +157,6 @@ class ChatController extends Controller
                 $message->getImageOriginal()
             ],
         ];
-
 
         event(new NewMessageEvent($data));
 

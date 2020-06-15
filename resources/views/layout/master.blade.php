@@ -5,60 +5,19 @@
     @include('layout.includes.styles')
     @yield('css')
 </head>
-
-<body class="position-relative spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="150">
-<div class="main-page">
-    <!-- Start Header Area -->
-@include('layout.header')
-<!-- End Header Area -->
-
-    <!-- Start Page Wrapper  -->
-    <main class="page-wrapper">
-
-
-        @include('layout.includes.alerts')
-        @yield('content')
-
-    </main>
-
-    @include('layout.footer')
+<body
+    class="page-template-default page page-id-230209 theme-Divi woocommerce-no-js et_pb_button_helper_class et_fullwidth_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_footer_columns4 et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db et_minified_js et_minified_css">
+<div id="page-container">
+    <div id="et-main-area">
+        @include('layout.navbar')
+        <div id="main-content">
+            @include('layout.includes.alerts')
+            @yield('content')
+            @include('layout.footer')
+            @include('layout.includes.scripts')
+            @yield('js')
+        </div>
+    </div>
 </div>
-
-@include('layout.includes.scripts')
-@yield('js')
-
-<script>
-
-
-
-    function appendChatNotification(m) {
-
-
-        var new_message = '<div class="row">\n' +
-            '                <div class="col-lg-12 col-sm-12 col-12">\n' +
-            '        <strong class="text-info">New Session</strong>\n';
-        '                <div>\n'
-        if (m.message) {
-            new_message +=
-                '  <p>' + m.message + '</p>\n' +
-                '        </div>\n'
-
-        }
-
-
-        new_message += '        <small class="text-warning">27.11.2015, 15:00</small>\n' +
-            '\n' +
-            '      </div>\n';
-
-        $('#chat-notify').append(new_message)
-      //  gotoChatBottom()
-    }
-
-    // function gotoChatBottom() {
-    //     var chat_body = $('#chat-body');
-    //     chat_body.scrollTop(chat_body[0].scrollHeight);
-    // }
-
-</script>
 </body>
 </html>

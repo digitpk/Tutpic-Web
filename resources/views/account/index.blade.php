@@ -1,14 +1,18 @@
 @extends('layout.master')
 
-
+@section('css')
+    <link rel="stylesheet" id="et-core-unified-230207-cached-inline-styles"
+          href="{{asset('/')}}css/et-cache/230207/et-core-unified-230207-158845186203.min.css"
+          onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"/></head>
+@stop
 @section('content')
-    @include('layout.includes.breadcrumb',['page_title'=>'Register'])
-    <div class="rn-contact-area rn-section-gap bg_color--1">
-        <div class="contact-form--1">
-            <div class="container">
-                <div class="row row--35 align-items-start">
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="section-title text-left mb--50">
+    <article id="post-230207" class="post-230207 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div id="et-boc" class="et-boc">
+                <div class="et-l et-l--post">
+                    <div class="et_builder_inner_content et_pb_gutters3">
+                        <div class="et_pb_section et_pb_section_1 et_section_regular">
+                            <div class="et_pb_row et_pb_row_0 et_pb_gutters1">
 
                                 @if(auth()->user()->isStudent())
                                     <div

@@ -1,89 +1,53 @@
 @extends('layout.master')
 @section('css')
-
+    <link rel="stylesheet" id="et-core-unified-230207-cached-inline-styles"
+          href="{{asset('css/et-cache/230207/et-core-unified-230207-158845186203.min.css')}}"
+          onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"/></head>
 @stop
-
 @section('content')
-    @include('layout.includes.breadcrumb',['page_title'=>'Register'])
-    <div class="rn-contact-area rn-section-gap bg_color--1">
-        <div class="contact-form--1">
-            <div class="container">
-                <div class="row row--35 align-items-start">
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="section-title text-left mb--50">
+    <article id="post-230211" class="post-230211 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div id="et-boc" class="et-boc">
+                <div class="et-l et-l--post">
+                    <div class="et_builder_inner_content et_pb_gutters3">
+                        <div
+                            class="et_pb_section et_pb_section_0 et_pb_with_background et_section_specialty section_has_divider et_pb_bottom_divider">
+                            <div class="et_pb_row">
+                                <div
+                                    class="et_pb_column et_pb_column_1_4 et_pb_column_1    et_pb_css_mix_blend_mode_passthrough">
+                                </div>
+                                <div
+                                    class="et_pb_column et_pb_column_1_2 et_pb_column_1    et_pb_css_mix_blend_mode_passthrough">
+                                    <div class="et_pb_module et_pb_image et_pb_image_0">
+                                        <span class="et_pb_image_wrap ">
+                                            <img
+                                                src="{{asset('/')}}img/2020/02/tutor-09.png" alt="" title=""/></span>
+                                    </div>
 
-
-                            <h3 class="title">Student SignUp Here.</h3>
-
-                        </div>
-                        <div class="form-wrapper">
-                            <form action="{{url('register')}}" method="post">
-                                <br>
-@csrf
-                                <a style="float: right" href="{{'register-teacher'}}">For Teacher</a>
-                                <label>
-                                    <input type="text" name="name" id="item02" placeholder="Your name *">
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-                                <label>
-                                    <input type="text" name="email" id="item02" placeholder="Your email *">
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-
-                                <label>
-                                    <input type="text" name="phone" id="item02" placeholder="Your phone *">
-                                    @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-
-                                <label>
-                                    <input type="password" name="password" id="item01" placeholder="Your Password *" />
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-
-                                <label>
-                                    <input type="password" name="password_confirmation" value="" class="input" placeholder="Confirm Password*">
-                                    @error('password_confirmation')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-
-                                <button class="rn-button-style--2 btn_solid" type="submit" value="submit" name="submit"
-                                        id="mc-embedded-subscribe">SignUp
-                                </button>
-
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <div class="thumbnail mb_md--30 mb_sm--30">
-                            <img src="assets/images/about/about-6.jpg" alt="trydo"/>
+                                    <a style="float: right;font-size: larger"  href="{{url('register-teacher')}}">For Teacher</a>
+                                    <h1>SignUp Here</h1>
+                                    <div id=""
+                                         class="et_pb_module et_pb_contact_form_0 et_pb_contact_form_container clearfix"
+                                    >
+                                        <div class="et-pb-contact-message"></div>
+                                        <div class="et_pb_contact">
+                                            @include('auth.includes.form-student')
+                                        </div>
+                                    </div>
+                                    <div class="et_pb_module et_pb_image et_pb_image_1">
+                                        <span class="et_pb_image_wrap ">
+                                            <img
+                                                src="{{asset('/')}}img/2020/02/tutor-10.png" alt="" title=""/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="et_pb_bottom_inside_divider et-no-transition"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </article>
 @stop
-
-
-
 

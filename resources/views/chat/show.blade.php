@@ -4,10 +4,13 @@
           href="{{asset('/')}}css/et-cache/230215/et-core-unified-230215-15884562735833.min.css"
           onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"/></head>
 
+    <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
     <script>
+        var pusher = new Pusher('552f47d5d4aeaf6a0cff', {
+            cluster: 'ap2'
+        });
         var channel = pusher.subscribe('new-message-{{auth()->id()}}');
         channel.bind('new-message', function (data) {
-
             appendChatMessage(data.message)
         });
     </script>
@@ -220,7 +223,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -233,6 +235,7 @@
 @section('js')
     <script src="{{asset('app-assets/vendors/js/core/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
 
+    <script src="{{asset('js/recorder.js')}}"></script>
     <script>
         var file_src = '{{asset('_images/chats/')}}';
         $(document).ready(function () {
@@ -286,13 +289,10 @@
         }
 
         function appendChatMessage(m) {
-
-            var new_message = '<div class="incoming_msg"  >\n' +
-                '    <div class="received_msg">\n' +
-                '        <div class="received_withd_msg">\n';
-
-
-
+            var new_message = '<li>\n' +
+                '    <div\n' +
+                '        class="rightside-left-chat">\n' +
+                '        <p>';
 
             if (m.description) {
                 new_message +='<span>'+ m.description+'</span>';
@@ -311,9 +311,9 @@
                     '                </a>'
             }
 
-            new_message +=     '<span class="time_date"> 11:01 AM    |    June 9</span></div>\n' +
+            new_message += '</p>\n' +
                 '    </div>\n' +
-                '</div>\n';
+                '</li>\n'
 
             $('#message-ul').append(new_message)
             gotoChatBottom()
