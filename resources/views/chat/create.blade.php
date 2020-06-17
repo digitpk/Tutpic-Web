@@ -105,19 +105,31 @@
 {{--                                    @endif--}}
 {{--                                </div>--}}
 
-{{--                                <div class="form-label-group {{$errors->has('level') ?'has-error':'' }}">--}}
-{{--                                    <select class="form-control"--}}
-{{--                                            name="level">--}}
-{{--                                        <option value="">Select Class</option>--}}
-{{--                                        @foreach($levels as $level)--}}
-{{--                                            <option--}}
-{{--                                                {{old('level')==$level->id ?'selected':'' }} value="{{$level->id}}">{{$level->title}}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
-{{--                                    @if($errors->has('level'))--}}
-{{--                                        <span class="help-block"> {{$errors->first('level')}}</span>--}}
-{{--                                    @endif--}}
-{{--                                </div>--}}
+                                <button style="margin-top: 5%; !important;" class="rn-button-style--2 btn_solid" type="submit" value="submit" name="submit"
+                                        id="mc-embedded-subscribe">Submit
+                                </button>
+                            </form>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <div class="thumbnail mb_md--30 mb_sm--30">
+                            <img src="{{asset('assets/images/about/about-6.jpg')}}" alt="trydo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {{--                                <div class="form-label-group flex-sb-m w-full p-b-48">--}}
 {{--                                    <div class="lend-button">--}}

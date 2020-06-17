@@ -1,24 +1,10 @@
 @extends('layout.master')
 @section('css')
-    <link rel="stylesheet" id="et-core-unified-230215-cached-inline-styles"
-          href="{{asset('/')}}css/et-cache/230215/et-core-unified-230215-15884562735833.min.css"
-          onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"/></head>
 
-    <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
-    <script>
-        var pusher = new Pusher('552f47d5d4aeaf6a0cff', {
-            cluster: 'ap2'
-        });
-        var channel = pusher.subscribe('new-message-{{auth()->id()}}');
-        channel.bind('new-message', function (data) {
-            appendChatMessage(data.message)
-        });
-    </script>
     <style>
-        .right-header {
-            padding: 15px;
-            height: 65px;
-            background-color: cadetblue;
+        .container {
+            max-width: 1170px;
+            margin: auto;
         }
 
         .right-header-detail p {
@@ -29,98 +15,150 @@
             padding-top: 5px;
         }
 
-        .right-header-detail span {
-            color: #9FA5AF;
-            font-size: 12px;
+        .top_spac {
+            margin: 20px 0 0;
         }
 
-        .rightside-left-chat, .rightside-right-chat {
+
+        .recent_heading {
             float: left;
-            width: 60%;
-            position: relative;
-            overflow: overlay;
+            width: 40%;
         }
 
-        .rightside-right-chat {
+        .srch_bar {
+            display: inline-block;
+            text-align: right;
+            width: 60%;
+            padding:
+        }
+
+        .headind_srch {
+            padding: 10px 29px 10px 20px;
+            overflow: hidden;
+            border-bottom: 1px solid #c4c4c4;
+        }
+
+        .recent_heading h4 {
+            color: #05728f;
+            font-size: 21px;
+            margin: auto;
+        }
+
+        .srch_bar input {
+            border: 1px solid #cdcdcd;
+            border-width: 0 0 1px 0;
+            width: 80%;
+            padding: 2px 0 4px 6px;
+            background: none;
+        }
+
+        .srch_bar .input-group-addon button {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            border: medium none;
+            padding: 0;
+            color: #707070;
+            font-size: 18px;
+        }
+
+        .srch_bar .input-group-addon {
+            margin: 0 0 0 -27px;
+        }
+
+        .chat_ib h5 {
+            font-size: 15px;
+            color: #464646;
+            margin: 0 0 8px 0;
+        }
+
+        .chat_ib h5 span {
+            font-size: 13px;
             float: right;
         }
 
-        .right-header-contentChat {
+        .chat_ib p {
+            font-size: 14px;
+            color: #989898;
+            margin: auto
+        }
+
+        .chat_img {
+            float: left;
+            width: 11%;
+        }
+
+        .chat_ib {
+            float: left;
+            padding: 0 0 0 15px;
+            width: 88%;
+        }
+
+        .chat_people {
+            overflow: hidden;
+            clear: both;
+        }
+
+        .chat_list {
+            border-bottom: 1px solid #c4c4c4;
+            margin: 0;
+            padding: 18px 16px 10px;
+        }
+
+        .inbox_chat {
+            height: 550px;
             overflow-y: scroll;
-            background-color: #FFFFFF;
-            position: relative;
         }
 
-        .right-header-contentChat ul li {
-            list-style: none;
-            margin-top: 20px;
+        .active_chat {
+            background: #ebebeb;
         }
 
-        .right-header-contentChat .rightside-left-chat p, .right-header-contentChat .rightside-right-chat p {
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 20px;
-            color: white;
-
-        }
-
-        .rightside-right-chat p span , .rightside-left-chat p span {
-            background-color: darkseagreen;
-            border-radius: 10px;
-            padding: 5px;
-        }
-
-        .rightside-right-chat p {
-            text-align: right;
-            /*color: white;*/
-        }
-
-        .rightside-right-chat p span {
-            background-color: dodgerblue;
-        }
-
-        /*.right-header-contentChat .rightside-right-chat p {*/
-        /*    !*background-color: lightgrey;*!*/
-        /*}*/
-
-        .right-chat-textbox {
-            padding: 15px 30px;
-            width: 100%;
-            background-color: cadetblue;
-        }
-
-        /* Dropup Button */
-        .dropbtn {
-            background-color: #3498DB;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-        }
-
-        /* The container <div> - needed to position the dropup content */
-        .dropup {
-            position: relative;
+        .incoming_msg_img {
             display: inline-block;
+            width: 6%;
         }
 
-        /* Dropup content (Hidden by Default) */
-        .dropup-content {
-            display: none;
-            position: absolute;
-            bottom: 50px;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+        .received_msg {
+            display: inline-block;
+            padding: 0 0 0 10px;
+            vertical-align: top;
+            width: 92%;
         }
 
-        /* Links inside the dropup */
-        .dropup-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
+        .received_withd_msg p {
+            background: #ebebeb none repeat scroll 0 0;
+            border-radius: 3px;
+            color: #646464;
+            font-size: 14px;
+            margin: 0;
+            padding: 5px 10px 5px 12px;
+            width: 100%;
+        }
+
+        .time_date {
+            color: #747474;
             display: block;
+            font-size: 12px;
+            margin: 8px 0 0;
+        }
+
+        .received_withd_msg {
+            width: 57%;
+        }
+
+        .mesgs {
+            float: left;
+            padding: 30px 15px 0 25px;
+            width: 60%;
+        }
+
+        .sent_msg p {
+            background: #05728f none repeat scroll 0 0;
+            border-radius: 3px;
+            font-size: 14px;
+            margin: 0;
+            color: #fff;
+            padding: 5px 10px 5px 12px;
+            width: 100%;
         }
 
         /* Change color of dropup links on hover */
@@ -128,24 +166,49 @@
             background-color: #ddd
         }
 
-        /* Show the dropup menu on hover */
-        .dropup:hover .dropup-content {
-            display: block;
+        .sent_msg {
+            float: right;
+            width: 46%;
         }
 
-        /* Change the background color of the dropup button when the dropup content is shown */
-        .dropup:hover .dropbtn {
-            background-color: #2980B9;
+        .input_msg_write input {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            border: medium none;
+            color: #4c4c4c;
+            font-size: 15px;
+            min-height: 48px;
+            width: 100%;
         }
 
-        input[type="file"] {
-            display: none;
+        .type_msg {
+            border-top: 1px solid #c4c4c4;
+            position: relative;
         }
 
-        label:hover {
+        .msg_send_btn {
+            background: #05728f none repeat scroll 0 0;
+            border: medium none;
+            border-radius: 50%;
+            color: #fff;
             cursor: pointer;
+            font-size: 17px;
+            height: 33px;
+            position: absolute;
+            right: 0;
+            top: 11px;
+            width: 33px;
+        }
+
+        .messaging {
+            padding: 0 0 50px 0;
+        }
+
+        .msg_history {
+            height: 516px;
+            overflow-y: auto;
         }
     </style>
+
 
 @stop
 @section('content')
@@ -228,12 +291,14 @@
                 </div>
             </div>
         </div>
-    </article>
-
-
+    </div>
 @stop
+
+
+
+
+
 @section('js')
-    <script src="{{asset('app-assets/vendors/js/core/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
 
     <script src="{{asset('js/recorder.js')}}"></script>
     <script>
@@ -285,7 +350,7 @@
         })
 
         function addChatMessage(m) {
-            $('#message-ul').append(m)
+            $('#chat-body').append(m)
         }
 
         function appendChatMessage(m) {
@@ -315,7 +380,7 @@
                 '    </div>\n' +
                 '</li>\n'
 
-            $('#message-ul').append(new_message)
+            $('#chat-body').append(new_message)
             gotoChatBottom()
         }
 
@@ -375,50 +440,6 @@
             });
         })
 
-        //webkitURL is deprecated but nevertheless
-        URL = window.URL || window.webkitURL;
-
-        var gumStream; 						//stream from getUserMedia()
-        var rec; 							//Recorder.js object
-        var input; 							//MediaStreamAudioSourceNode we'll be recording
-
-        // shim for AudioContext when it's not avb.
-        var AudioContext = window.AudioContext || window.webkitAudioContext;
-        var audioContext //audio context to help us record
-
-        var recordButton = $("#recordButton");
-        // var stopButton = document.getElementById("stopButton");
-        // var pauseButton = document.getElementById("pauseButton");
-
-        //add events to those 2 buttons
-        recordButton.keypress(function () {
-            // startRecording()
-            console.log('recording')
-        });
-
-        // recordButton.click(function () {
-        //     console.log('recording')
-        // });
-        // stopButton.addEventListener("click", stopRecording);
-        // pauseButton.addEventListener("click", pauseRecording);
-
-        function startRecording() {
-            console.log("recordButton clicked");
-
-            /*
-                Simple constraints object, for more advanced audio features see
-                https://addpipe.com/blog/audio-constraints-getusermedia/
-            */
-
-            var constraints = {audio: true, video: false}
-
-            /*
-               Disable the record button until we get a success or fail from getUserMedia()
-           */
-
-            // recordButton.disabled = true;
-            // stopButton.disabled = false;
-            // pauseButton.disabled = false
 
             /*
                 We're using the standard promise based getUserMedia()
@@ -550,4 +571,5 @@
         }
     </script>
 @stop
+
 
