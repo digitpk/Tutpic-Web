@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Payment;
+use App\User;
+use Illuminate\Http\Request;
+
+class DashboardController extends Controller
+{
+    public function index()
+    {
+
+        return view('_admin.layout.master');
+    }
+
+    public function userInfo()
+    {
+
+        return view('_admin.user.index', ['users' => User::all()]);
+    }
+
+    public function userPayment()
+    {
+
+        return view('_admin.payment.index', ['payments' => Payment::all()]);
+    }
+
+
+}
