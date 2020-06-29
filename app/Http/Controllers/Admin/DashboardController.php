@@ -4,11 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Withdraw;
 use App\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
+
     public function index()
     {
 
@@ -25,6 +33,12 @@ class DashboardController extends Controller
     {
 
         return view('_admin.payment.index', ['payments' => Payment::all()]);
+    }
+
+    public function teacherWithdraw()
+    {
+
+        return view('_admin.withdraw.index', ['records' => Withdraw::all()]);
     }
 
 

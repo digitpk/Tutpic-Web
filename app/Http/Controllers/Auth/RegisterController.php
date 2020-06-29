@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\TeacherRegisterRequest;
+use App\Jobs\ResetPasswordJob;
 use App\Models\Level;
+use App\Models\PricingPlan;
+use App\Models\UserPricingPlan;
 use Mail;
 use App\Models\Subject;
 use App\Models\TeacherLevel;
@@ -44,7 +47,9 @@ class RegisterController extends Controller
     public function validateUniqueEmail($request)
     {
         return $request->validate([
-            'email' => 'required|unique:users'
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6',
+            'confirm_password' => 'same:password'
         ]);
     }
 
@@ -62,13 +67,29 @@ class RegisterController extends Controller
 
         ]);
 
-        Mail::send('mail.active.index',['url' =>"active?token={$user->remember_token}&user_id={$user->id}"],function ($message) use($user) {
-            $message->to(  $user->email);
-            $message->subject('to verfiy the account ');
-        });
+        $subject = 'to verfiy the account ';
+        $view = 'mail.active.index';
+        $url = "active?token={$user->remember_token}&user_id={$user->id}";
+
+        dispatch(new ResetPasswordJob($user,$subject,$view,$url));
+
+        PricingPlan::create([
+            'title'=>'Free',
+            'amount'=>0,
+            'session'=>7,
+        ]);
+
+        UserPricingPlan::create([
+            'title'=>'Free',
+            'user_id'=>$user->id,
+            'pricing_pla_id'=>1,
+            'amount'=>0,
+            'session'=>7,
+        ]);
 
         return redirect('login')->with('success','Please check your email box for account activation');
     }
+
 
     public function active(Request $request)
     {
@@ -153,12 +174,6 @@ class RegisterController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

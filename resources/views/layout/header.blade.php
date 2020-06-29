@@ -9,7 +9,7 @@
                 </a>
             </div>
         </div>
-        <div class="header-right" style="margin-right: 10%">
+        <div class="header-right" >
             <nav class="mainmenunav d-lg-block navbar-example2">
                 <!-- Start Mainmanu Nav -->
                 <ul class="mainmenu nav nav-pills">
@@ -17,7 +17,7 @@
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#service">Service</a>
                     </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#portfolio">Portfolio</a>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#pricing-plan">Pricing Plan</a>
                     </li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation"
@@ -43,14 +43,23 @@
                         </li>
 
                         <li class="has-droupdown">
-                            <a href="#"><i class="fa fa-user"></i></a>
+                            <a href="{{url('account')}}"><i class="fa fa-user"></i></a>
                             <ul class="submenu">
-                                <li><a href="#">{{auth()->user()->name}}</a></li>
+                                <li><a href="{{url('account')}}">{{auth()->user()->name}}</a></li>
                                 @if(auth()->check() && auth()->user()->isStudent())
                                     <li><a href="{{url('chat/create')}}">New Session</a></li>
                                     <li><a href="{{url('payment')}}">Payment</a></li>
+                                    <li><a href="{{url('chat')}}">Session</a></li>
+
+                                    @elseif(auth()->check() && auth()->user()->isTeacher())
+                                    <li><a href="{{url('chat')}}">Session</a></li>
+                                    <li><a href="{{url('withdraw')}}">Withdraw</a></li>
+
+
+                                    @elseif(auth()->check() && auth()->user()->isAdmin())
+                                    <li><a href="{{url('dashboard')}}">Dashboard</a></li>
+
                                 @endif
-                                <li><a href="{{url('chat')}}">Session</a></li>
                                 <li class="nav-item">
                                     <a class="nav-link smoth-animation"
                                        href="{{url('logout')}}">Logout</a>

@@ -29,7 +29,7 @@
                         <td>@if($record->is_active) Active @else Closed  @endif</td>
                         <td>{{date('d-m-Y',strtotime($record->created_at))}}</td>
                         <td>
-                            <a href="{{$url.'/'.base64_encode($record->id)}}" class="btn btn-info">View</a>
+                            <a href="{{$url.'/'.base64_encode($record->id)}}" class="btn btn-info" style="background-color: #f9004d!important;">View</a>
                         </td>
 
                     </tr>

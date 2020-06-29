@@ -30,7 +30,7 @@
                                 <br>
                                 @csrf
                                 <label for="levels">Select Classes</label>
-                                <select class="js-example-basic-multiple" multiple="multiple" name="levels[]" id="levels" >
+                                <select class="js-select" multiple="multiple" name="levels[]" id="levels" >
                                     <option value="1">Primary</option>
                                     <option value="2">Elementary</option>
                                     <option value="3">Secondary</option>
@@ -43,7 +43,7 @@
                                 @enderror
 
                                 <label for="subjects">Select Subjects</label>
-                                <select class="js-example-basic-multiple" multiple="multiple" name="subjects[]" id="subjects" >
+                                <select class="js-select" multiple="multiple" name="subjects[]" id="subjects" >
                                     <option value="1">English</option>
                                     <option value="2">Math</option>
                                     <option value="3">Physics</option>
@@ -132,7 +132,8 @@
 
     <script>
         $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
+            $('#subjects').select2();
+            $('#levels').select2();
         });
     </script>
     @stop

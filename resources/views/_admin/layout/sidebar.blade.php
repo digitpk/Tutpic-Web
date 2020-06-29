@@ -23,24 +23,22 @@
                 <li class="active"><i class=" ft-tachometer-fast"></i><a href="{{url('dashboard')}}" class="menu-item">Dashboard</a>
                 </li>
 
-                <li class="has-sub nav-item"><a href="#"><i class="ft-aperture"></i><span data-i18n=""
-                                                                                          class="menu-title">Gallery</span></a>
-                    <ul class="menu-content">
-                        <li><a href="{{url('gallery-categories')}}" class="menu-item">Categories</a>
-                        <li><a href="{{url('gallery-images')}}" class="menu-item">Images</a>
+{{--                <li class="has-sub nav-item"><a href="#"><i class="ft-aperture"></i><span data-i18n=""--}}
+{{--                                                                                          class="menu-title">Gallery</span></a>--}}
+{{--                    <ul class="menu-content">--}}
+{{--                        <li><a href="{{url('gallery-categories')}}" class="menu-item">Categories</a>--}}
+{{--                        <li><a href="{{url('gallery-images')}}" class="menu-item">Images</a>--}}
 
-                    </ul>
-                </li>
-                <li><a href="{{url('services')}}" class="menu-item">Services</a>
+{{--                    </ul>--}}
+{{--                </li>--}}
+
                 <li><a href="{{url('blogs')}}" class="menu-item">Blogs</a>
-                <li><a href="{{url('slider-image')}}" class="menu-item">Slider Image</a>
-                <li><a href="{{url('certifications')}}" class="menu-item">Company Certifications</a>
-{{--                <li><a href="{{url('brands')}}" class="menu-item">Brands</a>--}}
-                <li><a href="{{url('testimonials')}}" class="menu-item">Client Testimonials</a>
-                <li><a href="{{url('info')}}" class="menu-item">Company Info</a>
-                <li><a href="{{url('user-info')}}" class="menu-item">User Info</a>
-                <li><a href="{{url('payment-info')}}" class="menu-item">Payment Info</a>
-                <li><a href="{{url('contact')}}" class="menu-item">Contact Us</a>
+{{--                <li><a href="{{url('info')}}" class="menu-item">Company Info</a>--}}
+                <li><a href="{{url('users')}}" class="menu-item">User</a>
+                <li><a href="{{url('payments')}}" class="menu-item">Payment</a>
+                <li><a href="{{url('withdraws')}}" class="menu-item">Withdraw</a>
+                <li><a href="{{url('pricing-plan')}}" class="menu-item">Pricing Plan</a>
+{{--                <li><a href="{{url('contact')}}" class="menu-item">Contact Us</a>--}}
             </ul>
         </div>
     </div>

@@ -15,7 +15,7 @@
                 <!-- Start Single Service  -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                     <div class="single-service service__style--2 bg-color-gray">
-                        <a href="service-details.html">
+                        <a href="#">
                             <div class="service">
                                 <div class="icon">
                                     <i data-feather="cast"></i>
@@ -34,7 +34,7 @@
                 <!-- Start Single Service  -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                     <div class="single-service service__style--2 bg-color-gray">
-                        <a href="service-details.html">
+                        <a href="#">
                             <div class="service">
                                 <div class="icon">
                                     <i data-feather="layers"></i>
@@ -53,7 +53,7 @@
                 <!-- Start Single Service  -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                     <div class="single-service service__style--2 bg-color-gray">
-                        <a href="service-details.html">
+                        <a href="#">
                             <div class="service">
                                 <div class="icon">
                                     <i data-feather="users"></i>
@@ -72,7 +72,7 @@
                 <!-- Start Single Service  -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                     <div class="single-service service__style--2 bg-color-gray">
-                        <a href="service-details.html">
+                        <a href="#">
                             <div class="service">
                                 <div class="icon">
                                     <i data-feather="monitor"></i>
@@ -91,7 +91,7 @@
                 <!-- Start Single Service  -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                     <div class="single-service service__style--2 bg-color-gray">
-                        <a href="service-details.html">
+                        <a href="#">
                             <div class="service">
                                 <div class="icon">
                                     <i data-feather="camera"></i>
@@ -110,7 +110,7 @@
                 <!-- Start Single Service  -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                     <div class="single-service service__style--2 bg-color-gray">
-                        <a href="service-details.html">
+                        <a href="#">
                             <div class="service">
                                 <div class="icon">
                                     <i data-feather="activity"></i>

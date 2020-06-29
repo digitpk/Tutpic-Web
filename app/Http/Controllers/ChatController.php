@@ -7,6 +7,7 @@ use App\Events\NewNotificationEvent;
 use App\Jobs\NewChatJob;
 use App\Models\Chat;
 use App\Models\ChatMessage;
+use App\Models\CompanyInfo;
 use App\Models\Level;
 use App\Models\Subject;
 use App\Models\UserNotification;
@@ -21,6 +22,11 @@ class ChatController extends Controller
 
     const VIEW = 'chat';
     const URL = 'chat';
+
+    public function __construct()
+    {
+        $this->middleware('allow');
+    }
 
     public function index()
     {
@@ -42,14 +48,14 @@ class ChatController extends Controller
 
     public function create()
     {
-
-
+        if (auth()->user()->remainingChats() <= 0) {
+            return redirect('account')->with('success', 'Sorry you have no more sessions. please buy sessions plan');
+        }
         return view(self::VIEW . '.create', [
             'subjects' => Subject::active()
                 ->get(),
             'levels' => Level::active()
                 ->get(),
-
         ]);
     }
 
@@ -65,11 +71,12 @@ class ChatController extends Controller
 
         $level_id = $request->level;
         $subject_id = $request->subject;
-
+        $company  =  CompanyInfo::all();
         $chat = Chat::create([
             'student_id' => auth()->id(),
             'level_id' => $level_id,
             'subject_id' => $subject_id,
+            'teacher_price' => $company->amount,
         ]);
 
         ChatMessage::create([
@@ -89,15 +96,14 @@ class ChatController extends Controller
 
         $url = 'chat/' . base64_encode($chat->id);
 
-
         $data = [
             'url' => $url,
         ];
 
-
-        dispatch(new NewChatJob($teachers, $data,$chat));
+        dispatch(new NewChatJob($teachers, $data, $chat));
 
         return redirect($url)->with('success', 'We are looking for best teacher');
+
     }
 
     public function show(Request $request, $id)
@@ -105,11 +111,11 @@ class ChatController extends Controller
         $id = base64_decode($id);
         $chat = Chat::find($id);
         $notification = UserNotification::find($request->notification_id);
-            if ($notification){
-                $notification->update([
-                    'is_read'=>true
-                ]);
-            }
+        if ($notification) {
+            $notification->update([
+                'is_read' => true
+            ]);
+        }
 
         if ($chat) {
             if ($chat->teacher_id == auth()->id() || $chat->student_id == auth()->id()) {
@@ -172,13 +178,11 @@ class ChatController extends Controller
             ],
         ];
 
-
         event(new NewMessageEvent($data));
 
         return view(self::VIEW . '.partials.message', [
             'message' => $message
         ]);
-
     }
 
     public function destroy($id)
@@ -188,12 +192,18 @@ class ChatController extends Controller
 
     public function closed($id)
     {
+        $chat_id = $id;
 
         Chat::find($id)->update([
             'is_active' => 0
         ]);
+        $record = Chat::where('id', $id)->first();
 
-        return back();
+        if ($record->teacher_id) {
+            return redirect('review?chat_id=' . $chat_id);
+        }
+
+        return redirect('chat')->with('success', 'Session closed');
 
     }
 }

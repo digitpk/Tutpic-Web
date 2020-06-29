@@ -13,4 +13,16 @@ class Payment extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function pricingPlan()
+    {
+        return $this->belongsTo(PricingPlan::class,'plan_id');
+    }
+
+    public function getUserName()
+    {
+        return $this->user->name;
+    }
+
+
 }

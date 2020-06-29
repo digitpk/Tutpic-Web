@@ -15,21 +15,27 @@
 
                         </div>
                         <div class="form-wrapper">
-                            <form action="http://web.tutpic.com/register-teacher" method="post">
-                                <br>
 
+                            <form method="POST" action="{{ url('reset-password') }}">
+                                <br>
+                                @csrf
 
                                 <label>
-                                    <input type="text" name="email" id="item02" placeholder="Your email *">
+                                    <input type="password" name="password"  placeholder="Your New Password *">
                                 </label>
-
-
+                                <label>
+                                    <input type="password" name="confirm_password"  placeholder="Your confirm Password *">
+                                </label>
+                                <label>
+                                    <input type="text" name="user_id"  value="{{$user->id}}" hidden>
+                                </label>
 
                                 <button class="rn-button-style--2 btn_solid" type="submit" value="submit" name="submit"
                                         id="mc-embedded-subscribe">Reset my Password
                                 </button>
                             </form>
-                            @if ($errors->any())
+
+                        @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)

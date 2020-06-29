@@ -19,12 +19,12 @@
     <!-- Start About Area  -->
 
     <!-- Start Portfolio Area  -->
-    @include('pages.portfolio')
+    @include('pages.pricing-plan')
     <!-- Start Portfolio Area  -->
 
-    <!-- Start Team Area  -->
-@include('pages.team')
-    <!-- End Team Area  -->
+{{--    <!-- Start Team Area  -->--}}
+{{--@include('pages.team')--}}
+{{--    <!-- End Team Area  -->--}}
 
 
     <!-- Start Counterup Area  -->

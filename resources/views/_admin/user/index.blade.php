@@ -23,7 +23,7 @@ $url = 'user/';
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>User Role</th>
-                                    <th>Action</th>
+{{--                                    <th>Action</th>--}}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -38,16 +38,16 @@ $url = 'user/';
                                         @else
                                             <td>Student</td>
                                         @endif
-                                    <td>
-                                        <button type="button" class="btn btn-success dropdown-toggle"
-                                                data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                            <span class="ft-settings"></span>
-                                        </button>
+{{--                                    <td>--}}
+{{--                                        <button type="button" class="btn btn-success dropdown-toggle"--}}
+{{--                                                data-toggle="dropdown" aria-haspopup="true"--}}
+{{--                                                aria-expanded="false">--}}
+{{--                                            <span class="ft-settings"></span>--}}
+{{--                                        </button>--}}
 {{--                                        <div class="dropdown-menu arrow">--}}
 {{--                                            <a href="{{$url.$user->id.'/edit'}}" class="dropdown-item" type="button">Edit</a>--}}
 {{--                                        </div>--}}
-                                    </td>
+{{--                                    </td>--}}
                                 </tr>
                                 @endforeach
 

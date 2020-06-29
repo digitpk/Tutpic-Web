@@ -1,11 +1,11 @@
 <!-- JS
 ============================================ -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <!-- Modernizer JS -->
 <script src="{{asset('/')}}assets/js/vendor/modernizr.min.js"></script>
 <!-- jQuery JS -->
-<script src="{{asset('/')}}assets/js/vendor/jquery.js"></script>
 <!-- Bootstrap JS -->
 <script src="{{asset('/')}}assets/js/vendor/bootstrap.min.js"></script>
 <script src="{{asset('/')}}assets/js/vendor/stellar.js"></script>
@@ -144,24 +144,29 @@
 <script !src="">
 
 
-    ion.sound({
-        sounds: [
-            {name: "beer_can_opening"},
-            {name: "bell_ring"}
-        ],
-        path: "{{asset('sounds')}}/",
-        preload: true,
-        volume: 1.0
-    });
+{{--    ion.sound({--}}
+{{--        sounds: [--}}
+{{--            {name: "beer_can_opening"},--}}
+{{--            {name: "bell_ring"}--}}
+{{--        ],--}}
+{{--        path: "{{asset('sounds')}}/",--}}
+{{--        preload: true,--}}
+{{--        volume: 1.0--}}
+{{--    });--}}
 
-function messageAlert() {
-    ion.sound.play("bell_ring");
+{{--function messageAlert() {--}}
+{{--    ion.sound.play("bell_ring");--}}
 
-}
+{{--}--}}
 
-function chatAlert() {
-    ion.sound.play("bell_ring");
+{{--function chatAlert() {--}}
+{{--    ion.sound.play("bell_ring");--}}
 
-}
+{{--}--}}
 
 </script>
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script src="{{asset('/')}}app-assets/js/app.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>

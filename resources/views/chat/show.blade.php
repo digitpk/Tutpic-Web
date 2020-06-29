@@ -139,9 +139,9 @@
         }
 
         .received_withd_msg p {
-            background: #ebebeb none repeat scroll 0 0;
+            background: black none repeat scroll 0 0;
             border-radius: 3px;
-            color: #646464;
+            color: #f9004d;
             font-size: 14px;
             margin: 0;
             padding: 5px 10px 5px 12px;
@@ -166,7 +166,7 @@
         }
 
         .sent_msg p {
-            background: #05728f none repeat scroll 0 0;
+            background: #f9004d none repeat scroll 0 0;
             border-radius: 3px;
             font-size: 14px;
             margin: 0;
@@ -187,7 +187,7 @@
 
         .input_msg_write input {
             background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-            border: medium none;
+            /*border: medium #f9004d !important;*/
             color: #4c4c4c;
             font-size: 15px;
             min-height: 48px;
@@ -200,16 +200,16 @@
         }
 
         .msg_send_btn {
-            background: #05728f none repeat scroll 0 0;
+            background: #f9004d none repeat scroll 0 0;
             border: medium none;
             border-radius: 50%;
             color: #fff;
             cursor: pointer;
-            font-size: 17px;
+            font-size: 18px;
             height: 33px;
             position: absolute;
-            right: 0;
-            top: 11px;
+            right: 0%;
+            top: 58%;
             width: 33px;
         }
 
@@ -229,15 +229,26 @@
     @include('layout.includes.breadcrumb',['page_title'=>'Chat'])
 
     <div class="container">
+
+        @if(!$chat->is_active)
+            <div class="col-xs-10">
+                <h2 class="text text-center" style="color: #1f1f25;">Session Closed</h2>
+                <br>
+                <br>
+            </div>
+        @else
+
+
+
         @if($chat->is_active)
-            <p class="text-primary " style="text-align: right;color: orangered;margin-top: 13px"><span
+            <p class="text-primary " style="text-align: right;color: #f9004d !important;margin-top: 13px;"><span
                     class="fa fa-info"></span> For
                 permanent
                 Closing Chat Click
                 <a
                     href="javascript:"
                     onclick="confirmCloseChat()"
-                    class="text-danger">here</a>
+                    class="text-danger" style="color: black!important;">here</a>
             </p>
         @endif
         <div class="row">
@@ -253,12 +264,13 @@
                         </div>
                     </div>
                     <div class="type_msg">
-                        <div class="input_msg_write">
+                        <div class="input_msg_write justify-content-center"   >
+
+                            <ol id="recordingsList"></ol>
 
 
-                            @if($chat->is_active)
                                 @csrf
-                                <div class="form-group d-inline">
+                                <div class="form-group d-inline col-md-12">
                                     <label for="image"><span style="   font-size: 32px;    margin: 10px;"
                                                              class="fa fa-image"></span></label>
                                     <input type="file" id="image" name="image" hidden accept="image/*">
@@ -270,19 +282,23 @@
                                     <input type="file" id="video" name="video" hidden accept="video/*">
                                 </div>
 
+                                <div class="form-group d-inline">
+                                    <label for="audio"><button
+                                            style="   font-size: 32px; border-radius: 20px;   margin: 10px;"
+                                            class="fa fa-microphone"  type="button" onkeydown="startRecord()" onkeyup="stopRecord()" id="recordButton"></button></label>
+                                    {{--                                    <input type="file" id="audio" name="video" hidden accept="video/*">--}}
+                                </div>
+
                                 <input
-                                    name="description" style="width: 70%" autocomplete="off"
+                                    name="description" style="width: 80%" autocomplete="off"
                                     id="description"
                                     type="text"
                                     placeholder="Write your message here"
                                     class="d-inline">
+
                                 <button class="msg_send_btn" type="button" onclick="chatMessageSubmit()"><i class="fa fa-paper-plane"
-                                                                              aria-hidden="true"></i>
+                                                                                                            aria-hidden="true"></i>
                                 </button>
-                            @else
-                                <div class="col-xs-10">
-                                    <h3 class="text-white text-center">session closed</h3>
-                                </div>
                             @endif
 
 
@@ -300,10 +316,10 @@
 
 @section('js')
 
-    <script src="{{asset('js/recorder.js')}}"></script>
+
     <script>
         var file_src = '{{asset('_images/chats/')}}';
-        $(document).ready(function () {
+        jQuery(document).ready(function () {
             gotoChatBottom()
 
             //  setTimeout(function () {
@@ -324,19 +340,19 @@
         }
 
         function chatMessageSubmit() {
-            var description_field = $('#description');
+            var description_field = jQuery('#description');
             var data = {'description': description_field.val()}
             if (!data.description) {
                 alert('please write some message description')
                 return;
             }
-            $.ajax({
+            jQuery.ajax({
                 type: 'PUT',
                 url: '{{$url.'/'.$chat->id}}',
                 data: data,
                 dataType: 'html',
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (r) {
                     description_field.val('')
@@ -349,15 +365,15 @@
             })
         }
 
-        $('#description').on('keydown', function (e) {
-            if (e.keyCode == 13 && $(this).val()) {
+        jQuery('#description').on('keydown', function (e) {
+            if (e.keyCode == 13 && jQuery(this).val()) {
                 chatMessageSubmit()
             }
 
         })
 
         function addChatMessage(m) {
-            $('#chat-body').append(m)
+            jQuery('#chat-body').append(m)
         }
 
         function appendChatMessage(m) {
@@ -387,28 +403,28 @@
                 '    </div>\n' +
                 '</div>'
 
-            $('#chat-body').append(new_message)
+            jQuery('#chat-body').append(new_message)
             gotoChatBottom()
         }
 
         function gotoChatBottom() {
-            var chat_body = $('#chat-body');
+            var chat_body = jQuery('#chat-body');
             chat_body.scrollTop(chat_body[0].scrollHeight);
 
             ;
 
         }
 
-        $('#image').on('change', function (e) {
+        jQuery('#image').on('change', function (e) {
 
             var formData = new FormData();
-            formData.append('image', $(this)[0].files[0]);
-            $.ajax({
+            formData.append('image', jQuery(this)[0].files[0]);
+            jQuery.ajax({
                 url: '{{url('chat-file/'.$chat->id)}}',
                 type: 'POST',
                 data: formData,
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                 },
                 cache: false,
                 contentType: false,
@@ -424,17 +440,17 @@
             });
         })
 
-        $('#video').on('change', function (e) {
+        jQuery('#video').on('change', function (e) {
 
             var formData = new FormData();
-            formData.append('video', $(this)[0].files[0]);
+            formData.append('video', jQuery(this)[0].files[0]);
 
-            $.ajax({
+            jQuery.ajax({
                 url: '{{url('chat-file/'.$chat->id)}}',
                 type: 'POST',
                 data: formData,
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                 },
                 cache: false,
                 contentType: false,
@@ -449,9 +465,12 @@
                 }
             });
         })
+
 
 
     </script>
+
+
 @stop
 
 

@@ -46,9 +46,9 @@
                                 <button class="rn-button-style--2 btn_solid" type="submit" value="submit" name="submit"
                                         id="mc-embedded-subscribe">Submit
                                 </button>
-                                <a style="float: right" href="{{'reset-password'}}">Reset Password</a>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="inner  " style="margin-left: 100%">
+                                <a style="float: right" href="{{'verify-email'}}">Reset Password</a>
+                                <div class="col-md-12">
+                                    <div class="inner ">
                                         <ul class="social-share rn-lg-size d-flex justify-content-center liststyle">
                                             <li><a  href="{{url('login/facebook')}}"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a  href="{{url('login/google')}}"><i class="fab fa-google"></i></a></li>

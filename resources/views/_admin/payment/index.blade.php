@@ -19,10 +19,12 @@ $url = 'payment/';
                             <table class="table table-striped table-bordered column-rendering">
                                 <thead>
                                 <tr>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Amount</th>
                                     <th>Remarks</th>
-                                    <th>Image</th>
+                                    <th>Pricing Plan</th>
+                                    <th>Status</th>
                                     <th>Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -31,12 +33,17 @@ $url = 'payment/';
                                 @foreach($payments as $payment)
 
                                     <tr>
-                                        <td>{{$payment->user_id}}</td>
+                                        <td><img src="{{asset('_images/payment/thumbnail/'.$payment->image)}}" alt=""></td>
+                                        <td>{{$payment->getUserName()}}</td>
                                         <td>{{$payment->amount}}</td>
                                         <td>{{$payment->remarks}}</td>
-                                        <td>{{$payment->image}}</td>
+                                        <td>{{$payment->pricingPlan->title}}</td>
+                                        <td>{{$payment->status}}</td>
+
                                         <td>{{$payment->date}}</td>
                                         <td>
+
+                                        @if($payment->status != 'approved')
                                             <button type="button" class="btn btn-success dropdown-toggle"
                                                     data-toggle="dropdown" aria-haspopup="true"
                                                     aria-expanded="false">
@@ -46,8 +53,8 @@ $url = 'payment/';
                                                 <a href="{{$url.$payment->id.'/edit'}}" class="dropdown-item"
                                                    type="button">Edit</a>
                                             </div>
+                                    @endif
                                         </td>
-
 
                                         </td>
                                     </tr>

@@ -25,76 +25,78 @@
                                             {"breakpoint":490, "settings": {"slidesToShow": 1}}
                                             ]'>
             <!-- Start Blog Area  -->
+            @foreach($blogs as $blog)
             <div class="blog blog-style--1">
                 <div class="thumbnail">
-                    <a href="blog-details.html">
-                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-01.jpg" alt="Blog Images" />
+                    <a href="{{url('blogs-details/'.$blog->id)}}">
+                        <img class="w-100" src="{{asset('_images/blogs/thumbnail/'.$blog->image)}}" alt="Blog Images" />
                     </a>
                 </div>
                 <div class="content">
-                    <p class="blogtype">Development</p>
-                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
+                    <p class="blogtype">{{$blog->title}}</p>
+                    <h4 class="title"><a href="{{url('blogs-details/'.$blog->id)}}">{{$blog->short_description}}</a>
                     </h4>
                     <div class="blog-btn">
-                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
+                        <a class="rn-btn text-white" href="{{url('blogs-details/'.$blog->id)}}">Read More</a>
                     </div>
                 </div>
             </div>
+            @endforeach
             <!-- End Blog Area  -->
 
-            <!-- Start Blog Area  -->
-            <div class="blog blog-style--1">
-                <div class="thumbnail">
-                    <a href="blog-details.html">
-                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-02.jpg" alt="Blog Images" />
-                    </a>
-                </div>
-                <div class="content">
-                    <p class="blogtype">Development</p>
-                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
-                    </h4>
-                    <div class="blog-btn">
-                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Blog Area  -->
+{{--            <!-- Start Blog Area  -->--}}
+{{--            <div class="blog blog-style--1">--}}
+{{--                <div class="thumbnail">--}}
+{{--                    <a href="blog-details.html">--}}
+{{--                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-02.jpg" alt="Blog Images" />--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="content">--}}
+{{--                    <p class="blogtype">Development</p>--}}
+{{--                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>--}}
+{{--                    </h4>--}}
+{{--                    <div class="blog-btn">--}}
+{{--                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- End Blog Area  -->--}}
 
-            <!-- Start Blog Area  -->
-            <div class="blog blog-style--1">
-                <div class="thumbnail">
-                    <a href="blog-details.html">
-                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-03.jpg" alt="Blog Images" />
-                    </a>
-                </div>
-                <div class="content">
-                    <p class="blogtype">Development</p>
-                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
-                    </h4>
-                    <div class="blog-btn">
-                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Blog Area  -->
+{{--            <!-- Start Blog Area  -->--}}
+{{--            <div class="blog blog-style--1">--}}
+{{--                <div class="thumbnail">--}}
+{{--                    <a href="blog-details.html">--}}
+{{--                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-03.jpg" alt="Blog Images" />--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="content">--}}
+{{--                    <p class="blogtype">Development</p>--}}
+{{--                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>--}}
+{{--                    </h4>--}}
+{{--                    <div class="blog-btn">--}}
+{{--                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- End Blog Area  -->--}}
 
-            <!-- Start Blog Area  -->
-            <div class="blog blog-style--1">
-                <div class="thumbnail">
-                    <a href="blog-details.html">
-                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-04.jpg" alt="Blog Images" />
-                    </a>
-                </div>
-                <div class="content">
-                    <p class="blogtype">Development</p>
-                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
-                    </h4>
-                    <div class="blog-btn">
-                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Blog Area  -->
+{{--            <!-- Start Blog Area  -->--}}
+{{--            <div class="blog blog-style--1">--}}
+{{--                <div class="thumbnail">--}}
+{{--                    <a href="blog-details.html">--}}
+{{--                        <img class="w-100" src="{{asset('/')}}assets/images/blog/blog-04.jpg" alt="Blog Images" />--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="content">--}}
+{{--                    <p class="blogtype">Development</p>--}}
+{{--                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>--}}
+{{--                    </h4>--}}
+{{--                    <div class="blog-btn">--}}
+{{--                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- End Blog Area  -->--}}
         </div>
     </div>
 </div>

@@ -15,25 +15,22 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Amount</th>
                     <th>Remarks</th>
-                    <th>Image</th>
                     <th>Date</th>
-                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @forelse($records as $record)
                     <tr>
+                        <td><img style="width: 100px; height: 100px"
+                                 src="{{asset('_images/payment/thumbnail/'.$record->image)}}"
+                                 alt="{{$record->title}}"></td>
                         <td>{{$record->amount}}</td>
                         <td>{{$record->remarks}}</td>
-                        <td><img style="width: 100px; height: 100px"
-                                 src="{{asset('images/payment/thumbnail/'.$record->image)}}"
-                                 alt="{{$record->title}}"></td>
+
                         <td>{{date('d-m-Y',strtotime($record->date))}}</td>
-                        <td>
-                            <a href="{{$url.'/'.base64_encode($record->id)}}" class="btn btn-info">View</a>
-                        </td>
 
                     </tr>
 
@@ -51,7 +48,8 @@
 
             </table>
             <div class="row">
-                <div class="h-100 row align-items-center">            {{$records->links()}}
+                <div class="h-100 row align-items-center">
+                    {{$records->links()}}
                 </div>
 
             </div>

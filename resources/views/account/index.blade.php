@@ -1,76 +1,121 @@
 @extends('layout.master')
+@section('css')
 
+@stop
 
 @section('content')
-    @include('layout.includes.breadcrumb',['page_title'=>'Register'])
-    <div class="rn-contact-area rn-section-gap bg_color--1">
-        <div class="contact-form--1">
-            <div class="container">
-                <div class="row row--35 align-items-start">
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="section-title text-left mb--50">
-
-                                @if(auth()->user()->isStudent())
-                                    <div
-                                        class="et_pb_column  et_pb_column_1_6 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough">
-                                        <div
-                                            class="et_pb_button_module_wrapper {{request()->is('chat/create') ? 'et_pb_button_0' : ''}}   et_pb_button_2_wrapper et_pb_button_alignment_center et_pb_module ">
-                                            <a
-                                                @if(request()->is('chat/create')) style="color: white !important;"
-                                                @endif
-                                                class="et_pb_button   et_pb_button_2 et_pb_bg_layout_light"
-                                               href="{{url('chat/create')}}">Start Session</a>
-                                        </div>
+    @include('layout.includes.breadcrumb',['page_title'=>'Account'])
+    <!-- Start Service Area  -->
+    <div class="rn-service-area rn-section-gap bg_color--1" id="service">
+        <div class="container">
+            @if(session('success'))
+                <div class="alert alert-info">
+                    <p>{{session('success')}}</p>
+                </div>
+            @endif
+            @if(auth()->user()->isStudent())
+                <div class="row">
+                    <!-- Start Single Service  -->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="single-service service__style--2 bg-color-gray">
+                            <a href="{{url('chat')}}">
+                                <div class="service">
+                                    <div class="icon">
+                                        <i data-feather="cast"></i>
                                     </div>
-                                @endif
-
-                                <div
-                                    class="et_pb_column  et_pb_column_1_6 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough">
-                                    <div
-                                        class="et_pb_button_module_wrapper {{request()->is('chat') ? 'et_pb_button_0' : ''}}   et_pb_button_2_wrapper et_pb_button_alignment_center et_pb_module ">
-                                        <a @if(request()->is('chat')) style="color: white !important;"
-                                           @endif  class="et_pb_button   et_pb_button_2 et_pb_bg_layout_light"
-                                           href="{{url('chat')}}">Sessions</a>
-                                    </div>
-                                </div>
-                                <div
-                                    class="et_pb_column et_pb_column_1_6 et_pb_column_3  et_pb_css_mix_blend_mode_passthrough">
-                                    <div
-                                        class="et_pb_button_module_wrapper et_pb_button_3_wrapper et_pb_button_alignment_center et_pb_module ">
-                                        <a class="et_pb_button et_pb_button_3 et_pb_bg_layout_light"
-                                           href="#">Payments</a>
+                                    @php
+                                        $total_sessions = auth()->user()->getTotalUserChats();
+                                        $remaining_sessions = auth()->user()->usedChats();
+                                        $total_paid_amounts = auth()->user()->getTotalStudentPaidAmount();
+                                    @endphp
+                                    <div class="content">
+                                        <h3 class="title">Session</h3>
+                                        <p class="title">Available Session :
+                                            <strong>{{$total_sessions-$remaining_sessions}}</strong></p>
+                                        <p class="title">Used Sessions : <strong>{{$remaining_sessions}}</strong></p>
                                     </div>
                                 </div>
-                                <div
-                                    class="et_pb_column et_pb_column_1_6 et_pb_column_4  et_pb_css_mix_blend_mode_passthrough">
-                                    <div
-                                        class="et_pb_button_module_wrapper et_pb_button_4_wrapper et_pb_button_alignment_center et_pb_module ">
-                                        <a class="et_pb_button et_pb_button_4 et_pb_bg_layout_light"
-                                           href="#">Setting</a>
-                                    </div>
-                                </div>
-                                    <div
-                                    class="et_pb_column et_pb_column_1_6 et_pb_column_4  et_pb_css_mix_blend_mode_passthrough">
-                                    <div
-                                        class="et_pb_button_module_wrapper et_pb_button_4_wrapper et_pb_button_alignment_center et_pb_module ">
-                                        <a class="et_pb_button et_pb_button_4 et_pb_bg_layout_light"
-                                           href="{{url('logout')}}">Logout</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="et_pb_row et_pb_row_1">
-                                <div
-                                    class=" et_pb_css_mix_blend_mode_passthrough et-last-child">
-                                    @yield('body')
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
+                    <!-- End Single Service  -->
+
+                    <!-- Start Single Service  -->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="single-service service__style--2 bg-color-gray">
+                            <a href="{{url('payment')}}">
+                                <div class="service">
+                                    <div class="icon">
+                                        <i data-feather="layers"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="title">Payment</h3>
+                                        <p>Total Paid: <strong>{{$total_paid_amounts}}</strong></p>
+                                        <p><br></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Single Service  -->
+                @endif
+
+
+                <!-- Start Single Service  -->
+                    @if(auth()->user()->isTeacher())
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                                <div class="single-service service__style--2 bg-color-gray">
+                                    <a href="{{url('chat')}}">
+                                        <div class="service">
+                                            <div class="icon">
+                                                <i data-feather="cast"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="title">Session</h3>
+                                                <p class="title">Available Sessions :
+                                                    <strong>{{auth()->user()->getTotalTeacherChats()}}</strong></p>
+                                                <p>Avail Session :{{auth()->user()->usedChats()}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                                <div class="single-service service__style--2 bg-color-gray">
+                                    <a href="{{url('withdraw')}}">
+                                        <div class="service">
+                                            <div class="icon">
+                                                <i data-feather="layers"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="title">Withdraw</h3>
+                                                <p>Available Balance: <strong>{{auth()->user()->getTotalTeacherAvailableBalance()}}</strong></p>
+                                                <p>Total Withdraw: <strong>{{auth()->user()->getTotalTeacherPaidAmount()}}</strong></p>
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Single Service  -->
+                        </div>
+                    @endif
+
                 </div>
-            </div>
         </div>
-    </article>
+    </div>
+
 @stop
+
+
+
 @section('js')
+    <script>
+        $(document).ready(function () {
+            $('.breadcrumb-area').css('height', '300px')
+
+        });
+    </script>
 
 @stop
