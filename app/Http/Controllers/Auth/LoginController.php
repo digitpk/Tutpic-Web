@@ -128,7 +128,7 @@ class LoginController extends Controller
         $db_user = User::where('email', $user->email)->first();
 
         if ($db_user) {
-            Auth::login($db_user);
+            auth()->login($db_user);
             return redirect('/');
 
         } else {
