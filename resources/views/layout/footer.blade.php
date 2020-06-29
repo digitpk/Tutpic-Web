@@ -42,7 +42,7 @@
                     <div class="inner">
                         <span>Ready To Do This</span>
                         <h2>Let's get <br /> to work</h2>
-                        <a class="rn-button-style--2" href="contact.html">
+                        <a class="rn-button-style--2" href="#contact">
                             <span>Contact Us</span>
                         </a>
                     </div>
@@ -56,9 +56,9 @@
                             <div class="footer-widget">
                                 <h4>Quick Link</h4>
                                 <ul class="ft-link">
-                                    <li><a href="portfolio.html">Work</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Let's Talk</a></li>
+                                    <li><a href="{{url('/')}}">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -68,16 +68,28 @@
                             <div class="footer-widget">
                                 <h4>Say Hello</h4>
                                 <ul class="ft-link">
-                                    <li><a href="mailto:admin@example.com">admin@example.com</a></li>
-                                    <li><a href="mailto:hr@example.com">hr@example.com</a></li>
+                                    <li><a href="mailto:{{$info->email}}">{{$info->email}}</a></li>
                                 </ul>
 
                                 <div class="social-share-inner">
                                     <ul class="social-share social-style--2 d-flex justify-content-start liststyle mt--15">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+                                        @if($info->facebook)
+                                        <li><a href="{{$info->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                        @endif
+                                            @if($info->linkedin)
+
+                                            <li><a href="{{$info->linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                            @endif
+
+                                        @if($info->twitter)
+
+                                                <li><a href="{{$info->twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                            @endif
+                                            @if($info->instagram)
+
+                                            <li><a href="{{$info->instagram}}"><i class="fab fa-instagram-square"></i></a></li>
+                                            @endif
+
                                     </ul>
                                 </div>
                             </div>
@@ -86,7 +98,7 @@
 
                         <div class="col-lg-12">
                             <div class="copyright-text">
-                                <p>Copyright © 2020 Rainbow-Themes. All Rights Reserved.</p>
+                                <p>Copyright © 2020 {{$info->title}}. All Rights Reserved.</p>
                             </div>
                         </div>
                     </div>

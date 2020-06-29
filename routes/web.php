@@ -10,6 +10,8 @@ Route::namespace('Home')->group(function () {
     Route::get('blogs-details/{id}', 'HomeController@blog');
     Route::get('about', 'HomeController@about');
     Route::get('contact', 'HomeController@contact');
+    Route::post('contact-mail', 'HomeController@mail');
+
 });
 
 
@@ -17,6 +19,7 @@ Route::namespace('Home')->group(function () {
 Route::namespace('Admin')->middleware(['auth','admin'])->group( function () {
 
     Route::get('dashboard', 'DashboardController@index');
+    Route::resource('info', 'CompanyInfoController');
     Route::get('users', 'DashboardController@userInfo');
     Route::get('payments', 'DashboardController@userPayment');
     Route::get('withdraws', 'DashboardController@teacherWithdraw');

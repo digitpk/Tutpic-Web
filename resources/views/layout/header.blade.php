@@ -4,8 +4,8 @@
         <div class="header-left">
             <div class="logo">
                 <a href="{{url('/')}}">
-                    <img class="logo-1" src="{{asset('/')}}assets/images/logo/logo-light.png" alt="Logo Images">
-                    <img class="logo-2" src="{{asset('/')}}assets/images/logo/logo-all-dark.png" alt="Logo Images">
+                    <img class="logo-1" style="height: 56px;" src="{{asset('/')}}assets/images/logo/logo-white.png" alt="Logo Images">
+                    <img class="logo-2" src="{{asset('/')}}assets/images/logo/logo-black.png" alt="Logo Images">
                 </a>
             </div>
         </div>
@@ -19,7 +19,6 @@
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#about">About</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#pricing-plan">Pricing Plan</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link smoth-animation" href="{{url('/')}}#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation"
                                             href="{{url('/')}}#testimonial">Testimonial</a>
                     </li>

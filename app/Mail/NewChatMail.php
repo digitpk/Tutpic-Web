@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Mail;
 
 class NewChatMail extends Mailable
 {
@@ -18,7 +19,6 @@ class NewChatMail extends Mailable
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -28,6 +28,7 @@ class NewChatMail extends Mailable
      */
     public function build()
     {
+
         return $this->view('view.name');
     }
 }

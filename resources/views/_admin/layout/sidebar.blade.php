@@ -33,7 +33,7 @@
 {{--                </li>--}}
 
                 <li><a href="{{url('blogs')}}" class="menu-item">Blogs</a>
-{{--                <li><a href="{{url('info')}}" class="menu-item">Company Info</a>--}}
+                <li><a href="{{url('info')}}" class="menu-item">Company Info</a>
                 <li><a href="{{url('users')}}" class="menu-item">User</a>
                 <li><a href="{{url('payments')}}" class="menu-item">Payment</a>
                 <li><a href="{{url('withdraws')}}" class="menu-item">Withdraw</a>

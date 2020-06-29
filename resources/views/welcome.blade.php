@@ -43,9 +43,7 @@
     @include('pages.contact')
     <!-- End Contact Area  -->
 
-    <!-- Start Brand Area -->
-    @include('pages.brand')
-    <!-- End Brand Area -->
+
 
 
  @stop

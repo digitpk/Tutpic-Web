@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendMailJob;
 use App\Models\Certification;
+use App\Models\CompanyInfo;
 use App\Models\GalleryCategory;
 use App\Models\PricingPlan;
 use App\Models\Service;
@@ -11,6 +13,7 @@ use App\Models\Blog;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -45,6 +48,21 @@ class HomeController extends Controller
         $blog= Blog::find($id);
 
         return view('blogs-details.index',compact('blog'));
+    }
+
+    public function mail(Request  $request)
+    {
+         $data= $request->except('token');
+
+         //dispatch(new SendMailJob($data));
+        $info =CompanyInfo::first();
+
+        Mail::send('mail.contact.index',$data,function ($message) use($data,$info){
+            $message->to($info->email);
+            $message->from($data['email']);
+            $message->subject($data['subject']);
+        });
+        return redirect('/')->with('success','Your Email Received');
     }
 
 
